@@ -16,5 +16,11 @@ abstract class  LocaleKeys {
   static const  Apple = ' Apple';
   static const not = 'not';
   static const  now = ' now';
+  static const  already = ' already';
+  static const  login  = ' login ';
+  static const   name = '  name';
+  static const  email = ' email';
+  static const  pass = ' pass';
+  static const  Confirm  = ' Confirm ';
 
 }

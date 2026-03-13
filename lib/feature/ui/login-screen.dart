@@ -100,7 +100,7 @@ Text
             Text
             (LocaleKeys.not.tr(),
                   style: TextStyle(fontFamily: "DM",fontSize: 15.sp,
-                 color: Color(0xff6A707C) ),
+                 color:Colors.black ),
                   ),
                   Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -115,12 +115,10 @@ Text
           ],
         ),
       ],
-      
       ),
     ),
-    
-    
+
     );
-    
+
   }
 }

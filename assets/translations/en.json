@@ -11,7 +11,11 @@
   " Google": " sign in with Google",
    " Apple": " sign in with Apple",
    "not": "  Don’t have an account? ",
-    " now": "  Register now "
- 
-
-}
+    " now": "  Register now ",
+    " already": "  Already have an account? ",
+     "  name": "   Username ",
+     " email": "  Email",
+     " pass": "   Password",
+     " Confirm ": "   Confirm password ",
+     " login ": "  Login now  "
+    }
