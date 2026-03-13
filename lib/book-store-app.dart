@@ -16,8 +16,12 @@ class Bookstoreapp extends StatelessWidget {
        localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+      theme: ThemeData(fontFamily: "DM"),
         home: Welcomescreen(),
+        
       ),
     );
   }
 }
+
+

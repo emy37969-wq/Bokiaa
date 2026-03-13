@@ -274,18 +274,26 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_gen
-      sha256: "96f184a4ef42f275f78d7a58221d4ec5120be073d26eaf65a363db1b488deaae"
+      sha256: "1003c34680624fabea4327655ccd259ca4cb3912d8451868153d997da2195843"
       url: "https://pub.dev"
     source: hosted
-    version: "5.13.0"
+    version: "5.13.0+1"
   flutter_gen_core:
     dependency: transitive
     description:
       name: flutter_gen_core
-      sha256: ef3f43739c9903282453e88c97759adc51664456b2089e955e827b562c7add88
+      sha256: "22b3198a4cb1255841a3662b41adad35d36d9037fcd9d129858240030417e0b1"
       url: "https://pub.dev"
     source: hosted
-    version: "5.13.0"
+    version: "5.13.0+1"
+  flutter_gen_runner:
+    dependency: "direct main"
+    description:
+      name: flutter_gen_runner
+      sha256: "83fd55f5472a955725c5912819847e9770c4f295cd0ae4bdd26d99853f8a6546"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.13.0+1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -300,7 +308,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_native_splash:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_native_splash
       sha256: "7062602e0dbd29141fb8eb19220b5871ca650be5197ab9c1f193a28b17537bc7"

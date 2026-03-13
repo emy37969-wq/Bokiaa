@@ -1,0 +1,17 @@
+{
+"Login":"Login",
+"OrderNow":"Order Your Book Now!",
+ "WelcomeBack": "Welcome back! Glad        to see you, Again!",
+ "RegisterPrompt": "Hello! Register to get started",
+  "Register": " Register ",
+  "Email": "Enter your email",
+  "Password": "Enter your password",
+  "forget": " Forget Password?",
+  "or": " or",
+  " Google": " sign in with Google",
+   " Apple": " sign in with Apple",
+   "not": "  Don’t have an account? ",
+    " now": "  Register now "
+ 
+
+}
