@@ -17,5 +17,13 @@
      " email": "  Email",
      " pass": "   Password",
      " Confirm ": "   Confirm password ",
-     " login ": "  Login now  "
+     " login ": "  Login now  ",
+     " dontworry ": "  Don't worry! It occurs. Please enter the email address linked with your account. ",
+     " sendcode ": " Send code  ",
+     " otp ": " OTP Verification  ",
+     " entercode ": " Enter the verification code we just sent on your email address.  ",
+     " Verify ": "Verify ",
+     " remember ": "Remember Password? ",
+     " received ": "Didn’t received code? ",
+     " Resend ": "Resend "
     }

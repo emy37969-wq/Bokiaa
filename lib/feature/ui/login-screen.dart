@@ -2,6 +2,8 @@ import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
+import 'package:bokiaa/feature/ui/forget-password.dart';
+import 'package:bokiaa/feature/ui/register-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -36,11 +38,20 @@ class LoginScreen extends StatelessWidget {
           ispassword: true,
         ),  
         SizedBox(height: 5.h,) ,
-Text
-(LocaleKeys.forget.tr(),
-              style: TextStyle(fontFamily: "DM",fontSize: 15.sp,
-             color: Color(0xff6A707C) ),
-              ),
+InkWell(
+  onTap: () {
+        Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => Forgetpassword()),
+    );
+
+  },
+  child: Text
+  (LocaleKeys.forget.tr(),
+                style: TextStyle(fontFamily: "DM",fontSize: 15.sp,
+               color: Color(0xff6A707C) ),
+                ),
+),
         SizedBox(height: 20.h,),
         Appbutton(),
         SizedBox(height: 7.h,),
@@ -105,11 +116,20 @@ Text
                   Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text
-            (LocaleKeys.now.tr(),
-                  style: TextStyle(fontFamily: "DM",fontSize: 15.sp,
-                 color:Appcolors.maincolor ),
-                  ),
+            InkWell(
+              onTap: () {
+                        Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => RegisterScreen()),
+    );
+
+              },
+              child: Text
+              (LocaleKeys.now.tr(),
+                    style: TextStyle(fontFamily: "DM",fontSize: 15.sp,
+                   color:Appcolors.maincolor ),
+                    ),
+            ),
           ],
         ),
           ],

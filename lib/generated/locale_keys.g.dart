@@ -22,5 +22,13 @@ abstract class  LocaleKeys {
   static const  email = ' email';
   static const  pass = ' pass';
   static const  Confirm  = ' Confirm ';
+  static const  dontworry  = ' dontworry ';
+  static const  sendcode  = ' sendcode ';
+  static const  otp  = ' otp ';
+  static const  entercode  = ' entercode ';
+  static const  Verify  = ' Verify ';
+  static const  remember  = ' remember ';
+  static const  received  = ' received ';
+  static const  Resend  = ' Resend ';
 
 }
