@@ -25,30 +25,31 @@ class RegisterScreen extends StatelessWidget {
               ),
         ),
         SizedBox(height: 10.h,),
-        Customtextformfaild(
-          hinttext: LocaleKeys.name.tr(),
-          keyboardtype: TextInputType.emailAddress,
+        CustomTextFormField(
+          
+          hintText: LocaleKeys.name.tr(),
+          keyboardType: TextInputType.emailAddress,
         ),
         SizedBox(height: 10.h,),
-                Customtextformfaild(
-          hinttext: LocaleKeys.email.tr(),
-          keyboardtype: TextInputType.emailAddress,
+                CustomTextFormField(
+          hintText: LocaleKeys.email.tr(),
+          keyboardType: TextInputType.emailAddress,
          
         ),  
         SizedBox(height: 10.h,) ,
-Customtextformfaild(
-          hinttext: LocaleKeys.pass.tr(),
-          keyboardtype: TextInputType.visiblePassword,
+CustomTextFormField(
+          hintText: LocaleKeys.pass.tr(),
+          keyboardType: TextInputType.visiblePassword,
          
         ), 
         SizedBox(height: 10.h,),
-        Customtextformfaild(
-          hinttext: LocaleKeys.Confirm.tr(),
-          keyboardtype: TextInputType.visiblePassword,
+        CustomTextFormField(
+          hintText: LocaleKeys.Confirm.tr(),
+          keyboardType: TextInputType.visiblePassword,
           
         ), 
         SizedBox(height: 20.h,),
-        Appbutton(),
+        AppButton(title: 'Register',),
         SizedBox(height: 100.h,),
         
                      Row(
@@ -78,3 +79,18 @@ Customtextformfaild(
     );
   }
 }
+
+
+
+
+// import 'package:flutter/material.dart';
+
+
+// class RegisterScreen extends StatelessWidget {
+//   const RegisterScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }

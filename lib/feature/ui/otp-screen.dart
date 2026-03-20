@@ -1,5 +1,4 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
-import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';

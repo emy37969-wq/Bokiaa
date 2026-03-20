@@ -7,4 +7,6 @@ class Appcolors {
    static const greycolor=Colors.grey;
    static const darkgraycolor=Color(0xff8391A1);
 
+  static var primaryColor;
+
 }

@@ -9,7 +9,7 @@ class Custombackbutton extends StatelessWidget {
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
-          Navigator.pop(context); // بيرجع للصفحة اللي قبلها
+          Navigator.pop(context);
         },
       ),
     );

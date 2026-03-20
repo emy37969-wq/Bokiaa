@@ -1,5 +1,4 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
-import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
 import 'package:bokiaa/feature/ui/login-screen.dart';
@@ -23,7 +22,7 @@ class Forgetpassword extends StatelessWidget {
 Padding(
   padding: const EdgeInsets.all(8.0),
   child: Align(
-    alignment: Alignment.centerLeft, 
+    alignment: Alignment.centerLeft,    
     child: Text(
       LocaleKeys.forget.tr(),
       style: TextStyle(
@@ -38,9 +37,9 @@ Padding(
                color: Color(0xff6A707C) ),
                 ),
         SizedBox(height: 20.h,),
-        Customtextformfaild(
-          hinttext: LocaleKeys.Email.tr(),
-          keyboardtype: TextInputType.emailAddress,
+        CustomTextFormField(
+          hintText: LocaleKeys.Email.tr(),
+          keyboardType: TextInputType.emailAddress,
         ),
         SizedBox(height: 35.h,),
   Container(
