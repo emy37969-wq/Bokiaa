@@ -1,8 +1,8 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
-import 'package:bokiaa/feature/ui/login-screen.dart';
-import 'package:bokiaa/feature/ui/otp-screen.dart';
+import 'package:bokiaa/feature/auth/ui/login-screen.dart';
+import 'package:bokiaa/feature/auth/ui/otp-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

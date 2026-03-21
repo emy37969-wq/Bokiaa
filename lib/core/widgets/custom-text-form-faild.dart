@@ -105,7 +105,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               },
               child:isObscure? Icon(Icons.visibility_off):Icon(Icons.visibility))
         ):null,
-        fillColor: Appcolors.greycolor,
+        fillColor: const Color.fromARGB(255, 243, 240, 240),
         filled: true,
         hintText: widget.hintText,
         hintStyle: Apptextstyle.hintStyle,

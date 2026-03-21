@@ -25,5 +25,8 @@
      " Verify ": "Verify ",
      " remember ": "Remember Password? ",
      " received ": "Didn’t received code? ",
-     " Resend ": "Resend "
+     " Resend ": "Resend ",
+     " Error ": "Error ",
+     " Wrong ": "Somehing Wrong Please try again"
+
     }

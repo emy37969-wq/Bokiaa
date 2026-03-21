@@ -30,5 +30,7 @@ abstract class  LocaleKeys {
   static const  remember  = ' remember ';
   static const  received  = ' received ';
   static const  Resend  = ' Resend ';
+  static const  Error  = ' Error ';
+  static const  Wrong  = ' Wrong ';
 
 }

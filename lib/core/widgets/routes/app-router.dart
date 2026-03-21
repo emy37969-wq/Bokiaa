@@ -57,9 +57,9 @@
 // }
 import 'package:bokiaa/core/widgets/routes/routes.dart';
 import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
-import 'package:bokiaa/feature/buttom-nav-bar/bottom-nav-bar-screen.dart';
-import 'package:bokiaa/feature/ui/login-screen.dart';
-import 'package:bokiaa/feature/ui/register-screen.dart';
+import 'package:bokiaa/feature/auth/ui/bottom-nav-bar-screen.dart';
+import 'package:bokiaa/feature/auth/ui/login-screen.dart';
+import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

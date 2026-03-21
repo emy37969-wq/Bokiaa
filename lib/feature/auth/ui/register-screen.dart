@@ -48,8 +48,8 @@ CustomTextFormField(
           keyboardType: TextInputType.visiblePassword,
           
         ), 
-        SizedBox(height: 20.h,),
-        AppButton(title: 'Register',),
+        SizedBox(height: 25.h,),
+        AppButton(title: LocaleKeys.Register.tr(),),
         SizedBox(height: 100.h,),
         
                      Row(
