@@ -56,7 +56,7 @@ class AppButton extends StatelessWidget {
   final Color? backgroundColor;
   final String title;
   final void Function()? onTap;
-  const AppButton({super.key,  this.backgroundColor, required this.title, this.onTap});
+  const AppButton( {super.key,  this.backgroundColor, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -86,4 +86,7 @@ class AppButton extends StatelessWidget {
   }
 
   void login({required String email, required String password}) {}
+  void register({required String email, required String password,required String name ,required String password_confirmation}) {}
+
+
 }

@@ -7,12 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Authbloclistener extends StatelessWidget {
-  
   final TextEditingController email;
   final TextEditingController password;
+  final TextEditingController name;
+  final TextEditingController password_confirmation;
 
-  const Authbloclistener(
-      {super.key, required this.email, required this.password});
+  const Authbloclistener({
+    super.key,
+    required this.email,
+    required this.password,
+    required this.name,
+    required this.password_confirmation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,9 @@ class Authbloclistener extends StatelessWidget {
       child: AppButton(
         title: LocaleKeys.Login.tr(),
         onTap: () {
-          context.read<Authcubit>().login(email: email.text, password: password.text);
+          context
+              .read<Authcubit>()
+              .login(email: email.text, password: password.text);
         },
       ),
     );

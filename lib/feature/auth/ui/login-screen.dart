@@ -19,6 +19,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var usernameController = TextEditingController();
+  var confirmpasswordController = TextEditingController();
 
   @override
   void dispose() {
@@ -85,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(height: 10.h,),
-            Authbloclistener(
-                email: emailController, password: passwordController),
+            Authbloclistener( email: emailController, password: passwordController, name: usernameController, password_confirmation: confirmpasswordController,
+               ),
             SizedBox(
               height: 10.h,
             ),

@@ -74,7 +74,8 @@ class AppRouter {
           ),
         );
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (_) => RegisterScreen());
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context) => Authcubit(),
+          child: RegisterScreen()));
       case Routes.bottomNavBarScreen:
         return MaterialPageRoute(builder: (_) => BottomNavBarScreen());
       default:
