@@ -1,5 +1,6 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
+import 'package:bokiaa/feature/auth/ui/create-password-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -72,25 +73,35 @@ class Otpscreen extends StatelessWidget {
   ],
 ),
 SizedBox(height: 20.h,),
-           Container(
-   width: double.infinity,
-                       padding: EdgeInsets.symmetric(vertical: 19.h),
-                       alignment: Alignment.center,
-                       decoration: BoxDecoration(
-                         border:  Border.all(color: Colors.grey),
-                           color:Appcolors.maincolor, 
-                           borderRadius: BorderRadius.circular(8.r)),
-                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                           Text(
-                             LocaleKeys.Verify.tr(),
-                             style: TextStyle(fontSize: 15.sp,
-                              color: Colors.white ,
-                           ),
-                     ),
-                         ],
-                       )),             SizedBox(height: 280.h,),
+           InkWell(
+                         onTap: () {
+        Navigator.push(context,
+      MaterialPageRoute(builder: (_) =>Createpasswordscreen()),
+          );
+            },
+
+             child: Container(
+                width: double.infinity,
+                         padding: EdgeInsets.symmetric(vertical: 19.h),
+                         alignment: Alignment.center,
+                         decoration: BoxDecoration(
+                           border:  Border.all(color: Colors.grey),
+                             color:Appcolors.maincolor, 
+                             borderRadius: BorderRadius.circular(8.r)),
+                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                           children: [
+             
+                                Text(
+                                   LocaleKeys.Verify.tr(),
+                                   style: TextStyle(fontSize: 15.sp,
+                                    color: Colors.white ,
+                                                               ),
+                                                      ),
+                                
+                           ],
+                         )),
+           ),             SizedBox(height: 280.h,),
              Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

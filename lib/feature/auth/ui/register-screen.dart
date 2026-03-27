@@ -2,12 +2,9 @@ import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
-import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
-import 'package:bokiaa/feature/auth/ui/auth-bloc-listener.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -18,15 +15,18 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-    var usernameController = TextEditingController();
-  var confirmpasswordController = TextEditingController();
+    var nameController = TextEditingController();
+  var password_confirmationController = TextEditingController();
     var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
   @override
   void dispose() {
-    usernameController.dispose();
-   confirmpasswordController.dispose();
+    nameController.dispose();
+   password_confirmationController.dispose();
+       emailController.dispose();
+    passwordController.dispose();
+
     super.dispose();
   }
 
@@ -69,9 +69,10 @@ CustomTextFormField(
           
         ), 
         SizedBox(height: 25.h,),
-        // AppButton(title: LocaleKeys.Register.tr(),),
-            Authbloclistener( email: emailController, password: passwordController, name: usernameController, password_confirmation: confirmpasswordController,
-               ),
+        AppButton(title: LocaleKeys.Register.tr(),),
+        
+            // uthbloclistener( email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController,
+            //    ),
 
         SizedBox(height: 100.h,),
 

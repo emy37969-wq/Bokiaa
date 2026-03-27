@@ -18,15 +18,15 @@ class Authcubit extends Cubit<Authstate> {
 
   Future<void> register(
       {required String email,
-      required String username,
+      required String name,
       required String password,
-      required String confirmpassword}) async {
+      required String password_confirmation}) async {
     emit(AuthLoadingState());
     final bool response = await Authrepo.register(
         email: email,
-        name: username,
+        name: name,
         password: password,
-        password_confirmation: confirmpassword);
+        password_confirmation: password_confirmation);
     if (response) {
       emit(AuthSucssesState());
     } else {

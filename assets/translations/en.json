@@ -27,6 +27,21 @@
      " received ": "Didn’t received code? ",
      " Resend ": "Resend ",
      " Error ": "Error ",
-     " Wrong ": "Somehing Wrong Please try again"
+     " Wrong ": "Somehing Wrong Please try again",
+     " newpassword ": "Your new password must be unique from those previously used",
+     " createpassword ": "Create new password",
+     " Rsest ": "Reset Password",
+     " passwordchange ": "Password Changed!",
+     " changesuccess ": "Your password has been changed successfully.",
+     " backlogin ": "Back to Login",
+     " Newpassword ": "New Password",
+     " confirmpassword ": "Confirm Password",
+     " saller": "Best Seller",
+     " search": "Search Store"
+
+
+
+
+
 
     }

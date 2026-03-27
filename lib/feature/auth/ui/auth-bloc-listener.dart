@@ -9,15 +9,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Authbloclistener extends StatelessWidget {
   final TextEditingController email;
   final TextEditingController password;
-  final TextEditingController name;
-  final TextEditingController password_confirmation;
+  // final TextEditingController name;
+  // final TextEditingController password_confirmation;
 
   const Authbloclistener({
     super.key,
     required this.email,
     required this.password,
-    required this.name,
-    required this.password_confirmation,
+    // required this.name,
+    // required this.password_confirmation,
   });
 
   @override
@@ -41,7 +41,7 @@ class Authbloclistener extends StatelessWidget {
         } else if (state is AuthSucssesState) {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            Routes.bottomNavBarScreen,
+            Routes.homescreen,
             (route) => false,
           );
         }
@@ -54,6 +54,7 @@ class Authbloclistener extends StatelessWidget {
               .login(email: email.text, password: password.text);
         },
       ),
+      
     );
   }
 }

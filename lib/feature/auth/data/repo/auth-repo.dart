@@ -1,4 +1,3 @@
-import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:dio/dio.dart';
 
 class Authrepo {
@@ -23,11 +22,11 @@ class Authrepo {
     static Future<bool> register(
       {required String email, required String password,required String name,required String password_confirmation}) async {
     try {
-      final Response response = await dio.post(
+      final  response = await dio.post(
           "https://codingarabic.online/api/register",
-          data: {"username": name,"email": email, "password": password,"confirmpassword":password_confirmation});
+          data: {"name": name,"email": email, "password": password,"password_confirmation":password_confirmation});
       print(response.statusCode);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return true;
       } else {
         return false;
@@ -38,3 +37,35 @@ class Authrepo {
   }
 
 }
+
+
+
+
+// import 'package:bokiaa/core/ntework/api-erroe.dart';
+// import 'package:bokiaa/core/ntework/api-exceptions.dart';
+// import 'package:bokiaa/core/ntework/api-service.dart';
+// import 'package:bokiaa/core/utils/pref-helper.dart';
+// import 'package:bokiaa/feature/auth/data/user-model.dart';
+// import 'package:dio/dio.dart';
+
+// class Authrepo {
+//   Apiservice apiservice = Apiservice();
+
+// //login
+//   Future<Usermodel?> Login(String email, String password) async {
+//     try {
+//       final response = await apiservice
+//           .post("login", {"email": email, "password": password});
+//       final user = Usermodel.fromJson(response["data"]);
+//       if (user.token != null) {
+//         await Prefhelper.saveToken(user.token!);
+//       }
+//       return user;
+//     } on DioError catch (e) {
+//       throw Apiexceptions.handleError(e);
+//     } catch (e) {
+//       throw Apierroe(message: e.toString());
+//     }
+//   }
+// //register
+// }

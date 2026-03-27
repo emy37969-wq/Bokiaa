@@ -19,14 +19,12 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var usernameController = TextEditingController();
-  var confirmpasswordController = TextEditingController();
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
+  emailController.dispose();
+  passwordController.dispose();
+  super.dispose();
   }
 
   @override
@@ -49,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             CustomTextFormField(
               controller: emailController,
-              hintText: "Email",
+              hintText: LocaleKeys.Email.tr(),
               keyboardType: TextInputType.emailAddress,
 
               // hintText: LocaleKeys.Email.tr(),
@@ -61,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
             CustomTextFormField(
               controller: passwordController,
               isPassword: true,
-              hintText: "Password",
+              hintText: LocaleKeys.Password.tr(),
               keyboardType: TextInputType.visiblePassword,
 
               // hintText: LocaleKeys.Password.tr(),
@@ -86,9 +84,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Color(0xff6A707C)),
               ),
             ),
-            SizedBox(height: 10.h,),
-            Authbloclistener( email: emailController, password: passwordController, name: usernameController, password_confirmation: confirmpasswordController,
+            SizedBox(
+              height: 10.h,
+            ),
+             Authbloclistener( email: emailController, password: passwordController,
                ),
+            // InkWell(
+            //     onTap: () {
+            //       Navigator.push(
+            //           context, MaterialPageRoute(builder: (_) => Homescreen()));
+            //     },
+            //     child: AppButton(title: LocaleKeys.Login.tr())),
             SizedBox(
               height: 10.h,
             ),
@@ -104,7 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 7.h,),
+            SizedBox(
+              height: 7.h,
+            ),
             Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(vertical: 15.h),
@@ -148,7 +156,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 )),
-                SizedBox(height: 25.h,),
+            SizedBox(
+              height: 25.h,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -186,7 +196,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-
-
