@@ -2,7 +2,6 @@ import 'package:bokiaa/core/widgets/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class BottomNavBarScreen extends StatelessWidget {
   const BottomNavBarScreen({super.key});
 
@@ -16,7 +15,8 @@ class BottomNavBarScreen extends StatelessWidget {
           IconButton(onPressed: ()async{
             SharedPreferences pref=await  SharedPreferences.getInstance();
             await pref.remove("token");
-            Navigator.pushNamedAndRemoveUntil(context, Routes.loginScreen,(e)=>false );
+            // ignore: use_build_context_synchronously
+            Navigator.pushNamedAndRemoveUntil((context), Routes.loginScreen,(e)=>false );
           }, icon: Icon(Icons.login))
         ],
       ),

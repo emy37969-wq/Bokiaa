@@ -84,7 +84,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool isObscure=true;
   @override
   Widget build(BuildContext context) {
-    print("rebuild custom text ");
+    // print("rebuild custom text ");
 
     return TextFormField(
       controller: widget.controller,

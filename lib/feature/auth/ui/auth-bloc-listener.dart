@@ -41,7 +41,7 @@ class Authbloclistener extends StatelessWidget {
         } else if (state is AuthSucssesState) {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            Routes.homescreen,
+            Routes.bottomNavBarScreen,
             (route) => false,
           );
         }
