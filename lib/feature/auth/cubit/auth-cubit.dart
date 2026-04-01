@@ -12,7 +12,7 @@ class Authcubit extends Cubit<Authstate> {
     if (response) {
       emit(AuthSucssesState());
     } else {
-      emit(AuthErroeState());
+      emit(AuthEroreState());
     }
   }
 
@@ -30,7 +30,7 @@ class Authcubit extends Cubit<Authstate> {
     if (response) {
       emit(AuthSucssesState());
     } else {
-      emit(AuthErroeState());
+      emit(AuthEroreState());
     }
   }
 }

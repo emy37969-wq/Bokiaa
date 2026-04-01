@@ -29,7 +29,7 @@ class Authbloclistener extends StatelessWidget {
             context: context,
             builder: (context) => Center(child: CircularProgressIndicator()),
           );
-        } else if (state is AuthErroeState) {
+        } else if (state is AuthEroreState) {
           Navigator.pop(context);
           showDialog(
             context: context,
@@ -49,12 +49,9 @@ class Authbloclistener extends StatelessWidget {
       child: AppButton(
         title: LocaleKeys.Login.tr(),
         onTap: () {
-          context
-              .read<Authcubit>()
-              .login(email: email.text, password: password.text);
+          context.read<Authcubit>().login(email: email.text, password: password.text);
         },
       ),
-      
     );
   }
 }

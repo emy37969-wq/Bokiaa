@@ -1,8 +1,10 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
 import 'package:bokiaa/feature/auth/ui/auth-bloc-listener.dart';
 import 'package:bokiaa/feature/auth/ui/forget-password.dart';
+import 'package:bokiaa/feature/auth/ui/home-screen.dart';
 import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -19,6 +21,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  // var namecontroller = TextEditingController();
+  // var password_confirmationController = TextEditingController();
 
   @override
   void dispose() {
@@ -87,14 +91,13 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 10.h,
             ),
-             Authbloclistener( email: emailController, password: passwordController,
-               ),
-            // InkWell(
-            //     onTap: () {
-            //       Navigator.push(
-            //           context, MaterialPageRoute(builder: (_) => Homescreen()));
-            //     },
-            //     child: AppButton(title: LocaleKeys.Login.tr())),
+Authbloclistener(email: emailController, password: passwordController,),
+    // InkWell(
+    //             onTap: () {
+    //               Navigator.push(
+    //                   context, MaterialPageRoute(builder: (_) => Homescreen()));
+    //             },
+    //             child: AppButton(title: LocaleKeys.Login.tr())),
             SizedBox(
               height: 10.h,
             ),
