@@ -1,23 +1,69 @@
-import 'package:bokiaa/feature/auth/ui/search-screen.dart';
-import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';
-import 'package:bokiaa/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/feature/cart/ui/cart-screen.dart';
+import 'package:bokiaa/feature/home/cupit/home-cupit.dart';
+import 'package:bokiaa/feature/home/ui/home-screen.dart';
+import 'package:bokiaa/feature/profil/ui/profil-scrren.dart';
+import 'package:bokiaa/feature/wishlist/ui/wishlist-screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BottomNavBarScreen extends StatelessWidget {
+class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(bottomNavigationBar: BottomNavigationBar(items: [
-      BottomNavigationBarItem(icon: Image.asset("assets/images/Home.png"),label: ""),
-      BottomNavigationBarItem(icon: Image.asset("assets/images/Bookmark (1).png"),label: ""),
-      BottomNavigationBarItem(icon: Image.asset("assets/images/Category.png"),label: ""),
-      BottomNavigationBarItem(icon: Image.asset("assets/images/Profile.png"),label: ""),
-    ],),
+  State<BottomNavBarScreen> createState() => _BottomNavBarScreenState();
+}
 
-      // body: Padding(
+class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
+  int activindex = 0;
+   List<Widget> screens =[
+              BlocProvider(create: (context) => HomeCubit()..getslider(),
+                child: Homescreen()),
+              Wishlistscreen(),
+              Cartscreen(),
+              Profilscrren()
+            ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: activindex,
+        onTap: (index) {
+          setState(() {
+            activindex = index;
+           
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/images/Home.png",
+                color: activindex == 0 ? Appcolors.maincolor : Colors.black,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/images/Bookmark (1).png",
+                color: activindex == 1 ? Appcolors.maincolor : Colors.black,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/images/Category.png",
+                color: activindex == 2 ? Appcolors.maincolor : Colors.black,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                "assets/images/Profile.png",
+                color: activindex == 3 ? Appcolors.maincolor : Colors.black,
+              ),
+              label: ""),
+        ],
+      ),
+      body: screens[activindex],
+      // body:
+      // Padding(
       //   padding: const EdgeInsets.all(8.0),
       //   child: Column(children: [
       //     SafeArea(
@@ -52,51 +98,51 @@ class BottomNavBarScreen extends StatelessWidget {
       //     SizedBox(
       //       height: 20.h,
       //     ),
-          // Container(
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(20),
-          //     image: DecorationImage(
-          //       image: AssetImage("assets/images/binkbook.png"),
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          //   width: 400,
-          //   height: 150,
-          // ),
-          // SizedBox(
-          //   height: 10.h,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Container(
-          //       width: 35,
-          //       height: 10,
-          //       decoration: BoxDecoration(
-          //         borderRadius: BorderRadius.circular(20),
-          //         color: Color(0xffBFA054),
-          //       ),
-          //     ),
-          //     SizedBox(width: 7.w),
-          //     Container(
-          //       width: 10,
-          //       height: 10,
-          //       decoration: BoxDecoration(
-          //         color: Colors.grey[300],
-          //         borderRadius: BorderRadius.circular(20),
-          //       ),
-          //     ),
-          //     SizedBox(width: 7.w),
-          //     Container(
-          //       width: 10,
-          //       height: 10,
-          //       decoration: BoxDecoration(
-          //         color: Colors.grey[300],
-          //         borderRadius: BorderRadius.circular(20),
-          //       ),
-          //     ),
-          //   ],
-          // ),
+      // Container(
+      //   decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.circular(20),
+      //     image: DecorationImage(
+      //       image: AssetImage("assets/images/binkbook.png"),
+      //       fit: BoxFit.cover,
+      //     ),
+      //   ),
+      //   width: 400,
+      //   height: 150,
+      // ),
+      // SizedBox(
+      //   height: 10.h,
+      // ),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Container(
+      //       width: 35,
+      //       height: 10,
+      //       decoration: BoxDecoration(
+      //         borderRadius: BorderRadius.circular(20),
+      //         color: Color(0xffBFA054),
+      //       ),
+      //     ),
+      //     SizedBox(width: 7.w),
+      //     Container(
+      //       width: 10,
+      //       height: 10,
+      //       decoration: BoxDecoration(
+      //         color: Colors.grey[300],
+      //         borderRadius: BorderRadius.circular(20),
+      //       ),
+      //     ),
+      //     SizedBox(width: 7.w),
+      //     Container(
+      //       width: 10,
+      //       height: 10,
+      //       decoration: BoxDecoration(
+      //         color: Colors.grey[300],
+      //         borderRadius: BorderRadius.circular(20),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       //     SizedBox(
       //       height: 10.h,
       //     ),

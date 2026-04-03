@@ -1,11 +1,12 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
-import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
-import 'package:bokiaa/feature/auth/ui/uth-bloc-listener.dart';
+import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
+import 'package:bokiaa/feature/auth/ui/auth-bloc-listener.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -81,7 +82,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
             SizedBox(
               height: 25.h,
             ),
-            uthbloclistener(email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController),
+                         Authbloclistener(title: 'Register',onTap: (){
+               context.read<Authcubit>().register(
+                   name: nameController.text,
+                   email: emailController.text,
+                   password: passwordController.text,
+                   password_confirmation: password_confirmationController.text,
+               );
+             },),
+
+            // uthbloclistener(email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController),
             // AppButton(title: LocaleKeys.Register.tr(),),
             // AppButton(
             //   title: LocaleKeys.Register.tr(),

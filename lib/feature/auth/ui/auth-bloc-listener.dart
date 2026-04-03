@@ -1,24 +1,76 @@
+// import 'package:bokiaa/core/widgets/app-button.dart';
+// import 'package:bokiaa/core/widgets/routes/routes.dart';
+// import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
+// import 'package:bokiaa/generated/locale_keys.g.dart';
+// import 'package:easy_localization/easy_localization.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+
+// class Authbloclistener extends StatelessWidget {
+//   final TextEditingController email;
+//   final TextEditingController password;
+//   // final TextEditingController name;
+//   // final TextEditingController password_confirmation;
+
+//   const Authbloclistener({
+//     super.key,
+//     required this.email,
+//     required this.password,
+//     // required this.name,
+//     // required this.password_confirmation,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocListener<Authcubit, Authstate>(
+//       listener: (context, state) {
+//         if (state is AuthLoadingState) {
+//           showDialog(
+//             context: context,
+//             builder: (context) => Center(child: CircularProgressIndicator()),
+//           );
+//         } else if (state is AuthEroreState) {
+//           Navigator.pop(context);
+//           showDialog(
+//             context: context,
+//             builder: (context) => AlertDialog(
+//               title: Text(LocaleKeys.Error.tr()),
+//               content: Text(LocaleKeys.Wrong.tr()),
+//             ),
+//           );
+//         } else if (state is AuthSucssesState) {
+//           Navigator.pushNamedAndRemoveUntil(
+//             context,
+//             Routes.bottomNavBarScreen,
+//             (route) => false,
+//           );
+//         }
+//       },
+//       child: AppButton(
+//         title: LocaleKeys.Login.tr(),
+//         onTap: () {
+//           context.read<Authcubit>().login(email: email.text, password: password.text);
+//         },
+//       ),
+//     );
+//   }
+// }
+
 import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/routes/routes.dart';
 import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
-import 'package:bokiaa/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as login;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Authbloclistener extends StatelessWidget {
-  final TextEditingController email;
-  final TextEditingController password;
-  // final TextEditingController name;
-  // final TextEditingController password_confirmation;
-
-  const Authbloclistener({
-    super.key,
-    required this.email,
-    required this.password,
-    // required this.name,
-    // required this.password_confirmation,
-  });
+ class Authbloclistener extends StatelessWidget {
+  var usernameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+  final String title;
+  final void Function()? onTap;
+  Authbloclistener({super.key, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +79,15 @@ class Authbloclistener extends StatelessWidget {
         if (state is AuthLoadingState) {
           showDialog(
             context: context,
-            builder: (context) => Center(child: CircularProgressIndicator()),
+            builder: (_) => const Center(child: CircularProgressIndicator()),
           );
         } else if (state is AuthEroreState) {
           Navigator.pop(context);
           showDialog(
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(LocaleKeys.Error.tr()),
-              content: Text(LocaleKeys.Wrong.tr()),
+            builder: (_) => const AlertDialog(
+              title: Text("Error"),
+              content: Text("Something wrong please try again"),
             ),
           );
         } else if (state is AuthSucssesState) {
@@ -47,10 +99,8 @@ class Authbloclistener extends StatelessWidget {
         }
       },
       child: AppButton(
-        title: LocaleKeys.Login.tr(),
-        onTap: () {
-          context.read<Authcubit>().login(email: email.text, password: password.text);
-        },
+        title: title.tr(),
+        onTap: onTap,
       ),
     );
   }

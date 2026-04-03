@@ -2,13 +2,14 @@ import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/widgets/app-button.dart';
 import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
+import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
 import 'package:bokiaa/feature/auth/ui/auth-bloc-listener.dart';
 import 'package:bokiaa/feature/auth/ui/forget-password.dart';
-import 'package:bokiaa/feature/auth/ui/home-screen.dart';
 import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -91,7 +92,14 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 10.h,
             ),
-Authbloclistener(email: emailController, password: passwordController,),
+            Authbloclistener(title: 'Login',onTap: (){
+                context.read<Authcubit>().login(
+                    email: emailController.text,
+                    password: passwordController.text,
+                );
+              },),
+
+// Authbloclistener(email: emailController, password: passwordController,),
     // InkWell(
     //             onTap: () {
     //               Navigator.push(
