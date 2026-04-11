@@ -45,7 +45,6 @@ class SliderResponse {
     );
   }
 
-  get data => null;
 
   Map<String, dynamic> toJson() {
     return {

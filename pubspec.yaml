@@ -45,6 +45,8 @@ dependencies:
   carousel_slider: ^5.1.2
   # smooth_page_indicator: ^2.0.1
   smooth_page_indicator: 1.0.0
+  cached_network_image: ^3.4.1
+  skeletonizer: ^1.4.3
 
 
 dev_dependencies:

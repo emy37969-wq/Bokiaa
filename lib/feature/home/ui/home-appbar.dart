@@ -1,4 +1,6 @@
-import 'package:bokiaa/feature/auth/ui/search-screen.dart';
+import 'package:bokiaa/core/widgets/routes/app-router.dart';
+import 'package:bokiaa/core/widgets/routes/routes.dart';
+import 'package:bokiaa/feature/search/ui/search-screen.dart';
 import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,18 +35,16 @@ class Homeappbar extends StatelessWidget {
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => Searchscreen()));
+                      Navigator.pushNamed(context, Routes.searchscreen);
+                      // push(context,
+                      //     MaterialPageRoute(builder: (_) => Searchscreen()));
                     },
                     child: Image.asset("assets/images/search-normal.png"))
               ],
             ),
-            
           ),
-      // mainAxisAlignment: MainAxisAlignment.center,
-      // children: [Text("home")],
-
-    ]));
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // children: [Text("home")],
+        ]));
   }
 }
-  

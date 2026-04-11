@@ -51,29 +51,23 @@
 //   }
 // }
 
-
-
-
-
-
-
-
-
 import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:bokiaa/core/theme/app-text-style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class CustomTextFormField extends StatefulWidget {
   final String hintText;
   final TextInputType? keyboardType;
   final bool isPassword;
   final TextEditingController? controller;
-   const
-    CustomTextFormField({super.key, required this.hintText, this.keyboardType,
-  this.isPassword=false, this.controller
-
+  final void Function (String)? onChanged;
+  const CustomTextFormField({
+    super.key,
+    required this.hintText,
+    this.keyboardType,
+    this.isPassword = false,
+    this.controller, this.onChanged,
   });
 
   @override
@@ -81,45 +75,43 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  bool isObscure=true;
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     // print("rebuild custom text ");
 
     return TextFormField(
       controller: widget.controller,
-      onTapOutside: (v){
+      onTapOutside: (v) {
         FocusScope.of(context).unfocus();
       },
+      onChanged: widget.onChanged,
       cursorColor: Appcolors.maincolor,
-      keyboardType:widget.keyboardType ,
-      obscureText: widget.isPassword&&isObscure,
+      keyboardType: widget.keyboardType,
+      obscureText: widget.isPassword && isObscure,
       decoration: InputDecoration(
-        suffixIcon:widget.isPassword? Padding(
-          padding:  EdgeInsets.all(8.0.r),
-          child: InkWell(
-              onTap: (){
-                setState(() {
-                 isObscure=!isObscure;
-                });
-              },
-              child:isObscure? Icon(Icons.visibility_off):Icon(Icons.visibility))
-        ):null,
-        fillColor: const Color.fromARGB(255, 243, 240, 240),
-        filled: true,
-        hintText: widget.hintText,
-        hintStyle: Apptextstyle.hintStyle,
-        
-        border: OutlineInputBorder(
-
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Appcolors.Bordercolor)
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:Appcolors.maincolor)
-        )
-      ),
+          suffixIcon: widget.isPassword
+              ? Padding(
+                  padding: EdgeInsets.all(8.0.r),
+                  child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          isObscure = !isObscure;
+                        });
+                      },
+                      child: isObscure
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.visibility)))
+              : null,
+          fillColor: const Color.fromARGB(255, 243, 240, 240),
+          filled: true,
+          hintText: widget.hintText,
+          hintStyle: Apptextstyle.hintStyle,
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Appcolors.Bordercolor)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Appcolors.maincolor))),
     );
   }
 }

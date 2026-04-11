@@ -28,8 +28,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  AppConstants.token=prefs.getString("token");
   Diohelper.init();
-  AppConstants.token = prefs.getString("token");
   runApp(EasyLocalization(
       supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations',

@@ -1,10 +1,12 @@
 import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/core/widgets/custom-network.dart';
 import 'package:bokiaa/feature/home/cupit/home-cupit.dart';
 import 'package:bokiaa/feature/home/cupit/home-state.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Sliderscreen extends StatefulWidget {
@@ -16,9 +18,16 @@ class _SliderscreenState extends State<Sliderscreen> {
   int activeindex = 0;
   @override
   Widget build(BuildContext context) {
-        return BlocBuilder<HomeCubit, Homestate>(builder: (context, state) {
+        return BlocBuilder<HomeCubit, Homestate>(
+          buildWhen: (prev,current)=> current is SliderLoadingState||current is SliderErrorState||current is SliderSuccessState,
+          builder: (context, state) {
       if (state is SliderLoadingState) {
-        return CircularProgressIndicator();
+        return Skeletonizer(enabled: true,
+          child: Container(
+            height: 150.h, width: double.infinity,color: Colors.grey,
+            
+          ),
+        );
       } else if (state is SliderSuccessState) {
 
     return Column(
@@ -38,10 +47,7 @@ class _SliderscreenState extends State<Sliderscreen> {
               builder: (BuildContext context) {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(12.r),
-                  child: Image.network(
-                    i.image??"",
-                    fit: BoxFit.cover,
-                  ),
+                  child: Customnetwork(imageurl: i.image??"",width: double.infinity,)
                 );
               },
             );

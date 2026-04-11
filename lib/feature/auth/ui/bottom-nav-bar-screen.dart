@@ -17,7 +17,7 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int activindex = 0;
    List<Widget> screens =[
-              BlocProvider(create: (context) => HomeCubit()..getslider(),
+              BlocProvider(create: (context) => HomeCubit()..getslider()..getbestseeler(),
                 child: Homescreen()),
               Wishlistscreen(),
               Cartscreen(),

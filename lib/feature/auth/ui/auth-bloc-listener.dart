@@ -63,7 +63,7 @@ import 'package:easy_localization/easy_localization.dart' as login;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
- class Authbloclistener extends StatelessWidget {
+class Authbloclistener extends StatelessWidget {
   var usernameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -75,33 +75,33 @@ import 'package:flutter_bloc/flutter_bloc.dart';
   @override
   Widget build(BuildContext context) {
     return BlocListener<Authcubit, Authstate>(
-      listener: (context, state) {
-        if (state is AuthLoadingState) {
-          showDialog(
-            context: context,
-            builder: (_) => const Center(child: CircularProgressIndicator()),
-          );
-        } else if (state is AuthEroreState) {
-          Navigator.pop(context);
-          showDialog(
-            context: context,
-            builder: (_) => const AlertDialog(
-              title: Text("Error"),
-              content: Text("Something wrong please try again"),
-            ),
-          );
-        } else if (state is AuthSucssesState) {
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            Routes.bottomNavBarScreen,
-            (route) => false,
-          );
-        }
-      },
-      child: AppButton(
-        title: title.tr(),
-        onTap: onTap,
-      ),
-    );
+        listener: (context, state) {
+          if (state is AuthLoadingState) {
+            showDialog(
+              context: context,
+              builder: (_) => const Center(child: CircularProgressIndicator()),
+            );
+          } else if (state is AuthEroreState) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (_) => const AlertDialog(
+                title: Text("Error"),
+                content: Text("Something wrong please try again"),
+              ),
+            );
+          } else if (state is AuthSucssesState) {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              Routes.bottomNavBarScreen,
+              (route) => false,
+            );
+          }
+        },
+        child: AppButton(
+          title: title.tr(),
+          onTap: onTap,
+        ));
+    // );
   }
 }

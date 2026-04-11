@@ -137,7 +137,8 @@ class Authrepo {
     try {
       final  response = await Diohelper.dio?.post(
           Apiconstants.register,
-          data: {"name": name,
+          data: {
+        "name": name,
         "email": email,
         "password": password,
         "password_confirmation": password_confirmation

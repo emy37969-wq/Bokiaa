@@ -1,3 +1,4 @@
+import 'package:bokiaa/core/helper/app-constants.dart';
 import 'package:bokiaa/core/ntework/api-constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -10,7 +11,9 @@ class Diohelper {
    static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: Apiconstants.baseurl
+        baseUrl: Apiconstants.baseurl,
+        headers: {"Authorization":"Bearer ${AppConstants.token}"
+        },
       )
     );
        dio?.interceptors.add(PrettyDioLogger(
