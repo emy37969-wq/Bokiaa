@@ -47,6 +47,7 @@ dependencies:
   smooth_page_indicator: 1.0.0
   cached_network_image: ^3.4.1
   skeletonizer: ^1.4.3
+  pinput: ^2.2.21
 
 
 dev_dependencies:

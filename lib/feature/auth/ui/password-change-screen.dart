@@ -1,95 +1,97 @@
 
-import 'package:bokiaa/core/widgets/app-button.dart';
-import 'package:bokiaa/core/widgets/custom-back-button.dart';
-import 'package:bokiaa/feature/auth/ui/login-screen.dart';
-import 'package:bokiaa/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
 
-class Passwordchangescreen extends StatelessWidget {
-  const Passwordchangescreen({super.key});
+
+
+
+
+
+
+//       // Padding(
+//       //   padding: const EdgeInsets.all(16.0),
+//       //   child: Container(
+//       //             width: double.infinity,
+//       //                      padding: EdgeInsets.symmetric(vertical: 19.h),
+//       //                      alignment: Alignment.center,
+//       //                      decoration: BoxDecoration(
+//       //                        border:  Border.all(color: Colors.grey),
+//       //                          color:Appcolors.maincolor,
+//       //                          borderRadius: BorderRadius.circular(8.r)),
+//       //                      child: Row(
+//       //                       mainAxisAlignment: MainAxisAlignment.center,
+//       //                        children: [
+
+//       //                             Text(
+//       //                                LocaleKeys.backlogin.tr(),
+//       //                                style: TextStyle(fontSize: 15.sp,
+//       //                                 color: Colors.white ,
+//       //                                                            ),
+//       //                                                   ),
+
+//       //                        ],
+//       //                      )),
+//       // ),]));
+//     ]));
+//   }
+// }
+
+import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/core/widgets/app-button.dart';
+import 'package:bokiaa/core/widgets/routes/app-routes.dart';
+import 'package:flutter/material.dart';
+
+class PasswordChangedScreen extends StatelessWidget {
+  const PasswordChangedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(children: [
-      Custombackbutton(),
-      SizedBox(
-        height: 110,
-      ),
-      Image.asset("assets/images/Sticker.png"),
-      SizedBox(
-        height: 20.h,
-      ),
-      Text(
-        LocaleKeys.passwordchange.tr(),
-        style: TextStyle(
-          fontFamily: "DM",
-          fontSize: 30.sp,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 65.0),
-        child: Text(
-          LocaleKeys.changesuccess.tr(),
-          style: TextStyle(
-              fontFamily: "DM", fontSize: 15.sp, color: Color(0xff6A707C)),
-        ),
-      ),
-      SizedBox(
-        height: 30.h,
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: InkWell(
-       onTap: () {
-        Navigator.pushReplacement(
-  context,
-  MaterialPageRoute(
-    builder: (_) => BlocProvider(
-      create: (context) => Authcubit(),
-      child: LoginScreen(),
-    ),
-  ),
+    // void backToLogin() {
+    //   context.pushNamedAndRemoveUntil(AppRoutes.login);
+    // }
+    Navigator.of(context).pushNamedAndRemoveUntil(
+  AppRoutes.login,
+  (Route<dynamic> route) => false,
 );
-
-            },
-            child: AppButton(title: LocaleKeys.backlogin.tr())),
-      )
-
-
-
-
-
-
-
-      // Padding(
-      //   padding: const EdgeInsets.all(16.0),
-      //   child: Container(
-      //             width: double.infinity,
-      //                      padding: EdgeInsets.symmetric(vertical: 19.h),
-      //                      alignment: Alignment.center,
-      //                      decoration: BoxDecoration(
-      //                        border:  Border.all(color: Colors.grey),
-      //                          color:Appcolors.maincolor,
-      //                          borderRadius: BorderRadius.circular(8.r)),
-      //                      child: Row(
-      //                       mainAxisAlignment: MainAxisAlignment.center,
-      //                        children: [
-
-      //                             Text(
-      //                                LocaleKeys.backlogin.tr(),
-      //                                style: TextStyle(fontSize: 15.sp,
-      //                                 color: Colors.white ,
-      //                                                            ),
-      //                                                   ),
-
-      //                        ],
-      //                      )),
-      // ),]));
-    ]));
+    return Scaffold(
+      backgroundColor: Appcolors.Bordercolor,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(child:Image.asset("assets/images/Sticker.png"),),
+              const SizedBox(height: 32),
+              const Text(
+                'Password Changed!',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Serif',
+                  color: Appcolors.darkgraycolor
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Your password has been changed\nsuccessfully.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Appcolors.darkgraycolor,
+                  height: 1.5,
+                ),
+              ),
+              const SizedBox(height: 48),
+              Appbutton(
+                title: 'Back To Login',
+                // onPressed: backToLogin,
+                // isFilled: true,
+                backgroundColor: Appcolors.maincolor,
+                // textColor:Appcolors.Bordercolor,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

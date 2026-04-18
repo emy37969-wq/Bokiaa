@@ -1,5 +1,4 @@
 
-import 'package:bokiaa/feature/home/data/models/slider-model.dart';
 
 class Slidermodel {
   final String image;

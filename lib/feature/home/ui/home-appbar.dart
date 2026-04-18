@@ -1,5 +1,5 @@
 import 'package:bokiaa/core/widgets/routes/app-router.dart';
-import 'package:bokiaa/core/widgets/routes/routes.dart';
+import 'package:bokiaa/core/widgets/routes/app-routes.dart';
 import 'package:bokiaa/feature/search/ui/search-screen.dart';
 import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class Homeappbar extends StatelessWidget {
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.searchscreen);
+                      Navigator.pushNamed(context, AppRoutes.searchScreen);
                       // push(context,
                       //     MaterialPageRoute(builder: (_) => Searchscreen()));
                     },

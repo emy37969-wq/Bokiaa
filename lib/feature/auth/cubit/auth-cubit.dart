@@ -15,7 +15,6 @@ class Authcubit extends Cubit<Authstate> {
       emit(AuthEroreState());
     }
   }
-
   Future<void> register(
       {required String email,
       required String name,

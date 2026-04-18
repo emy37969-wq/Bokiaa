@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             CustomTextFormField(
               controller: nameController,
               hintText: LocaleKeys.name.tr(),
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
             ),
             SizedBox(
               height: 10.h,
@@ -61,7 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             CustomTextFormField(
               controller: emailController,
               hintText: LocaleKeys.email.tr(),
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
             ),
             SizedBox(
               height: 10.h,
@@ -69,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             CustomTextFormField(
               controller: passwordController,
               hintText: LocaleKeys.pass.tr(),
-              keyboardType: TextInputType.visiblePassword,
+              keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
             ),
             SizedBox(
               height: 10.h,
@@ -77,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             CustomTextFormField(
               controller: password_confirmationController,
               hintText: LocaleKeys.Confirm.tr(),
-              keyboardType: TextInputType.visiblePassword,
+              keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
             ),
             SizedBox(
               height: 25.h,

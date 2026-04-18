@@ -21,7 +21,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 child: Homescreen()),
               Wishlistscreen(),
               Cartscreen(),
-              Profilscrren()
+              // ProfileScreen()
             ];
   @override
   Widget build(BuildContext context) {

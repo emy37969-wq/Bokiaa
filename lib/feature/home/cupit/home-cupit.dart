@@ -11,13 +11,12 @@ class HomeCubit extends Cubit<Homestate> {
   getslider() async {
     emit(SliderLoadingState());
     final SliderResponse? response = await Homerepo.getSliders();
-    if (response != null) {
+    if (!isClosed &&  response != null) {
       emit(SliderSuccessState(response.sliders));
     } else {
       emit(SliderErrorState());
     }
   }
-
     getbestseeler() async {
     emit(SliderLoadingState());
     final Bestsellerresponse? response = await Homerepo.getbestseller();
@@ -27,7 +26,6 @@ class HomeCubit extends Cubit<Homestate> {
       emit(BestsellerErrorState());
     }
   }
-
   addtocart(int productid) async {
     emit(AddtocartLoadingState());
     final  response = await Cartrepo.addtocart(productid);

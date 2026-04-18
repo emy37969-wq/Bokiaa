@@ -57,7 +57,7 @@
 // }
 
 import 'package:bokiaa/core/widgets/app-button.dart';
-import 'package:bokiaa/core/widgets/routes/routes.dart';
+import 'package:bokiaa/core/widgets/routes/app-routes.dart';
 import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
 import 'package:easy_localization/easy_localization.dart' as login;
 import 'package:flutter/material.dart';
@@ -93,14 +93,14 @@ class Authbloclistener extends StatelessWidget {
           } else if (state is AuthSucssesState) {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              Routes.bottomNavBarScreen,
+              AppRoutes.bottomNavBarScreen,
               (route) => false,
             );
           }
         },
-        child: AppButton(
+        child: Appbutton(
           title: title.tr(),
-          onTap: onTap,
+          onTap: onTap, 
         ));
     // );
   }

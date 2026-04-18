@@ -1,4 +1,5 @@
 import 'package:bokiaa/core/widgets/routes/app-router.dart';
+import 'package:bokiaa/core/widgets/routes/app-routes.dart';
 import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class Bookstoreapp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       theme: ThemeData(fontFamily: "DM"),
-        onGenerateRoute:AppRouter().onGenerateRoute ,
+        // onGenerateRoute:AppRoutes().onGenerateRoute ,
 
         home:WelcomeScreen(),
         

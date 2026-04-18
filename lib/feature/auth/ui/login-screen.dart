@@ -3,7 +3,7 @@ import 'package:bokiaa/core/widgets/custom-back-button.dart';
 import 'package:bokiaa/core/widgets/custom-text-form-faild.dart';
 import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
 import 'package:bokiaa/feature/auth/ui/auth-bloc-listener.dart';
-import 'package:bokiaa/feature/auth/ui/forget-password.dart';
+import 'package:bokiaa/feature/auth/ui/forget-password-screen.dart';
 import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:bokiaa/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             CustomTextFormField(
               controller: emailController,
               hintText: LocaleKeys.Email.tr(),
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
 
               // hintText: LocaleKeys.Email.tr(),
               // keyboardType: TextInputType.emailAddress,
@@ -64,8 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: passwordController,
               isPassword: true,
               hintText: LocaleKeys.Password.tr(),
-              keyboardType: TextInputType.visiblePassword,
-
+              keyboardType: TextInputType.visiblePassword, autofillHints: [], validator: (value) {  }, 
               // hintText: LocaleKeys.Password.tr(),
               // keyboardType: TextInputType.visiblePassword,
               // isPassword: true,
@@ -77,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => Forgetpassword()),
+                  MaterialPageRoute(builder: (_) => ForgotPasswordScreen()),
                 );
               },
               child: Text(
@@ -206,3 +205,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
+

@@ -1,48 +1,48 @@
-// import 'package:bokiaa/core/theme/app-colors.dart';
-// import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
-// import 'package:bokiaa/feature/ui/login-screen.dart';
-// import 'package:bokiaa/generated/locale_keys.g.dart';
-// import 'package:easy_localization/easy_localization.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// // import 'package:bokiaa/core/theme/app-colors.dart';
+// // import 'package:bokiaa/feature/auth/cubit/auth-cubit.dart';
+// // import 'package:bokiaa/feature/ui/login-screen.dart';
+// // import 'package:bokiaa/generated/locale_keys.g.dart';
+// // import 'package:easy_localization/easy_localization.dart';
+// // import 'package:flutter/material.dart';
+// // import 'package:flutter_bloc/flutter_bloc.dart';
+// // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// class Appbutton extends StatelessWidget {
-//   final Color? background;
-//   final String title;
-//   final void Function()? onTap;
-//   const Appbutton({super.key, this.background, required this.title, this.onTap});
+// // class Appbutton extends StatelessWidget {
+// //   final Color? background;
+// //   final String title;
+// //   final void Function()? onTap;
+// //   const Appbutton({super.key, this.background, required this.title, this.onTap});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: () {
-//         context
-//             .read<Authcubit>()
-//             .login(email: LocaleKeys.Email, password: LocaleKeys.Password);
-//         // Navigator.push(
-//         //   context,
-//         //   MaterialPageRoute(builder: (_) => LoginScreen()),
-//         // );
-//       },
-//       child: Container(
-//         width: double.infinity,
-//         padding: EdgeInsets.symmetric(vertical: 19.h),
-//         alignment: Alignment.center,
-//         decoration: BoxDecoration(
-//             border: background == null ? null : Border.all(color: Colors.black),
-//             color: background ?? Appcolors.maincolor,
-//             borderRadius: BorderRadius.circular(8.r)),
-//         child: Text(
-//           LocaleKeys.Login.tr(),
-//           style: TextStyle(
-//               fontSize: 15.sp,
-//               color: background == Colors.white ? Colors.black : Colors.white),
-//         ),
-//       ),
-//     );
-//   }
-// }
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return InkWell(
+// //       onTap: () {
+// //         context
+// //             .read<Authcubit>()
+// //             .login(email: LocaleKeys.Email, password: LocaleKeys.Password);
+// //         // Navigator.push(
+// //         //   context,
+// //         //   MaterialPageRoute(builder: (_) => LoginScreen()),
+// //         // );
+// //       },
+// //       child: Container(
+// //         width: double.infinity,
+// //         padding: EdgeInsets.symmetric(vertical: 19.h),
+// //         alignment: Alignment.center,
+// //         decoration: BoxDecoration(
+// //             border: background == null ? null : Border.all(color: Colors.black),
+// //             color: background ?? Appcolors.maincolor,
+// //             borderRadius: BorderRadius.circular(8.r)),
+// //         child: Text(
+// //           LocaleKeys.Login.tr(),
+// //           style: TextStyle(
+// //               fontSize: 15.sp,
+// //               color: background == Colors.white ? Colors.black : Colors.white),
+// //         ),
+// //       ),
+// //     );
+// //   }
+// // }
 
 
 
@@ -52,11 +52,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
-class AppButton extends StatelessWidget {
+class Appbutton extends StatelessWidget {
   final Color? backgroundColor;
   final String title;
   final void Function()? onTap;
-  const AppButton( {super.key,  this.backgroundColor, required this.title, this.onTap});
+  const Appbutton( {super.key,  this.backgroundColor, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -90,3 +90,57 @@ class AppButton extends StatelessWidget {
 
 
 }
+
+
+// import 'package:bokiaa/core/theme/app-colors.dart';
+// import 'package:bokiaa/core/theme/app-text-style.dart';
+// import 'package:flutter/material.dart';
+
+// class Appbutton extends StatelessWidget {
+//   const Appbutton({
+//     super.key,
+//     required this.text,
+//     this.onPressed,
+//     this.isFilled = true,
+//     this.backgroundColor,
+//     this.textColor, void Function()? onTap,
+//   });
+
+//   final String text;
+//   final void Function()? onPressed;
+//   final bool isFilled;
+//   final Color? backgroundColor;
+//   final Color? textColor;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final Color effectiveBgColor =
+//         backgroundColor ??
+//         (isFilled ? Appcolors.maincolor : Appcolors.Bordercolor);
+
+//     final Color effectiveTextColor =
+//         textColor ?? (isFilled ? Appcolors.Bordercolor : Colors.black);
+
+//     return SizedBox(
+//       width: double.infinity,
+//       height: 60,
+//       child: ElevatedButton(
+//         onPressed: onPressed,
+//         style: ElevatedButton.styleFrom(
+//           backgroundColor: effectiveBgColor,
+//           foregroundColor: effectiveTextColor,
+//           elevation: 0,
+//           shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.circular(8),
+//             side: isFilled
+//                 ? BorderSide.none
+//                 : BorderSide(
+//                     color: effectiveTextColor,
+//                   ), // Border matches text color
+//           ),
+//         ),
+//         child: Text(text, style: AppTextStyle.button16Const),
+//       ),
+//     );
+//   }
+// }
