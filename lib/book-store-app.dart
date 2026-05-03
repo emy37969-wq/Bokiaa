@@ -1,8 +1,12 @@
-import 'package:bokiaa/core/widgets/routes/app-router.dart';
-import 'package:bokiaa/core/widgets/routes/app-routes.dart';
+import 'package:bokiaa/core/theme/app_theme.dart';
+import 'package:bokiaa/core/theme/cupit/theme_cupit.dart';
+import 'package:bokiaa/core/theme/cupit/theme_state.dart';
+import 'package:bokiaa/core/widgets/routes/app-routers.dart';
 import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';
+import 'package:bokiaa/main.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Bookstoreapp extends StatelessWidget {
@@ -13,16 +17,21 @@ class Bookstoreapp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      splitScreenMode:true,
-      child: MaterialApp(
-       localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      theme: ThemeData(fontFamily: "DM"),
-        // onGenerateRoute:AppRoutes().onGenerateRoute ,
-
-        home:WelcomeScreen(),
-        
+      splitScreenMode: true,
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            navigatorKey: navigatorKey,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            theme: AppThemes.lightTheme,
+            darkTheme: AppThemes.darkTheme,
+            themeMode: state.themeMode,
+            onGenerateRoute: AppRouter.generateRoute,
+            home: const WelcomeScreen(),
+          );
+        },
       ),
     );
   }

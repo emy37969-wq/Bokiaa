@@ -87,7 +87,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ),
               Form(
                 key: _formKey,
-                child: CustomTextFormField(
+                child: CustomTextField(
                   hintText: 'Enter your email',
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -109,14 +109,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               _isLoading
                   ? Center(
                       child: CircularProgressIndicator(
-                        color: Appcolors.maincolor
+                        color: AppColors.primaryColor
                       ),
                     )
-                  : Appbutton(
-                      title: 'Send Code',
-onTap: () {
-  
-},                   
+                  : AppButton(
+                      text: 'Send Code',
+                      onPressed: () {
+                        
+                      },                   
   //  isFilled: true,
                       backgroundColor: const Color(0xFFBB9457),
                       // textColor: Colors.white,

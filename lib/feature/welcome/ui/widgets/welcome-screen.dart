@@ -1,7 +1,6 @@
 // //flutter pub run easy_localization:generate -S assets/translations -f keys -o locale_keys.g.dart
 
 import 'package:bokiaa/core/widgets/app-button.dart';
-import 'package:bokiaa/core/widgets/routes/app-routes.dart';
 import 'package:bokiaa/feature/auth/ui/login-screen.dart';
 import 'package:bokiaa/feature/auth/ui/register-screen.dart';
 import 'package:bokiaa/gen/assets.gen.dart';
@@ -53,9 +52,9 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               height: 210.h,
             ),
-            Appbutton(
-              title: LocaleKeys.Login.tr(),
-              onTap: () {
+            AppButton(
+              text: LocaleKeys.Login.tr(),
+              onPressed: () {
                 // Navigator.pushNamed(context, AppRoutes.login);
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginScreen()));
@@ -64,10 +63,11 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            Appbutton(
-              title: LocaleKeys.Register.tr(),
+            AppButton(
+              text: LocaleKeys.Register.tr(),
+              textColor: Colors.black,
               backgroundColor: Colors.white,
-              onTap: () {
+              onPressed: () {
                 // Navigator.pushNamed(context, AppRoutes.register);
                                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => RegisterScreen()));

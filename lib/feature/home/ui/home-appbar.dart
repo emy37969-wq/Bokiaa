@@ -1,4 +1,4 @@
-import 'package:bokiaa/core/widgets/routes/app-router.dart';
+import 'package:bokiaa/core/widgets/routes/app-routers.dart';
 import 'package:bokiaa/core/widgets/routes/app-routes.dart';
 import 'package:bokiaa/feature/search/ui/search-screen.dart';
 import 'package:bokiaa/feature/welcome/ui/widgets/welcome-screen.dart';

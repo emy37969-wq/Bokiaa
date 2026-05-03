@@ -98,9 +98,9 @@ class Authbloclistener extends StatelessWidget {
             );
           }
         },
-        child: Appbutton(
-          title: title.tr(),
-          onTap: onTap, 
+        child: AppButton(
+          text: title.tr(),
+          onPressed: onTap, 
         ));
     // );
   }

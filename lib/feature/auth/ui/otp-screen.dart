@@ -68,22 +68,22 @@ class _OtpVerificationScreenState extends State<Otpscreen> {
         color:Colors.black
       ),
       decoration: BoxDecoration(
-        color: Appcolors.Bordercolor,
+        color: AppColors.darkBorderColor,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Appcolors.Bordercolor),
+        border: Border.all(color: AppColors.darkBorderColor),
       ),
     );
 
     final focusedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration!.copyWith(
-        border: Border.all(color: Appcolors.maincolor, width: 1.5),
+        border: Border.all(color: AppColors.primaryColor, width: 1.5),
       ),
     );
 
     final submittedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration!.copyWith(
-        border: Border.all(color: Appcolors.maincolor),
-        color: Appcolors.productbackground,
+        border: Border.all(color: AppColors.primaryColor),
+        color: AppColors.lightBackground,
       ),
     );
 
@@ -130,11 +130,11 @@ class _OtpVerificationScreenState extends State<Otpscreen> {
                 ),
               ),
              SizedBox(height: 30.h,),
-              Appbutton(
-                title: 'Verify',
+              AppButton(
+                text: 'Verify',
                 // onPressed: _onVerify,
                 // isFilled: true,
-                backgroundColor: Appcolors.maincolor,
+                backgroundColor:AppColors.primaryColor,
                 // textColor: Colors.white, 
               ),
               const Spacer(),
@@ -159,7 +159,7 @@ class _OtpVerificationScreenState extends State<Otpscreen> {
                                 width: 16.sp,
                                 height: 16.sp,
                                 child: const CircularProgressIndicator(
-                                  color: Appcolors.maincolor,
+                                  color: AppColors.primaryColor,
                                   strokeWidth: 2,
                                 ),
                               )
@@ -167,7 +167,7 @@ class _OtpVerificationScreenState extends State<Otpscreen> {
                                 'Resend',
                                 style: TextStyle(
                                   fontSize: 14.sp,
-                                  color: Appcolors.maincolor,
+                                  color:AppColors.primaryColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -184,3 +184,5 @@ class _OtpVerificationScreenState extends State<Otpscreen> {
     );
   }
 }
+
+

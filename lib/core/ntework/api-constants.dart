@@ -1,21 +1,50 @@
-class Apiconstants {
-  static const String baseurl = "https://codingarabic.online/api/";
-  static const String login = "login";
-  static const String register = "register";
-  static const String slider = "sliders";
+// class Apiconstants {
+//   static const String baseurl = "https://codingarabic.online/api/";
+//   static const String login = "login";
+//   static const String register = "register";
+//   static const String slider = "sliders";
+//   static const String bestseller = "products-bestseller";
+//   static const String search = "products-search";
+//   static const String addtocart = "add-to-cart";
+//     static const String addToCart = "add-to-cart";
+//   static const String showCart = "cart";
+//   static const String removeFromCart = "remove-from-cart";
+//   static const String updateCart = "update-cart";
+
+//   static const String addToWishlist = "add-to-wishlist";
+//   static const String removeFromWishlist = "remove-from-wishlist";
+//   static const String showWishlist = "wishlist";
+
+//   static const String profile = "profile";
+
+
+// }
+class ApiConstants {
+  static const String baseUrl = "https://codingarabic.online/api/";
+
+  // ─── Auth ──────────────────────────────────
+  static const String loginEndpoint = "login";
+  static const String registerEndpoint = "register";
+
+  // ─── Home ──────────────────────────────────
+  static const String homeSliderEndpoint = "sliders";
   static const String bestseller = "products-bestseller";
-  static const String search = "products-search";
-  static const String addtocart = "add-to-cart";
-    static const String addToCart = "add-to-cart";
+
+  // ─── Products ──────────────────────────────
+  static const String products = "products";
+  static const String productsSearch = "products-search";
+
+  // ─── Cart ──────────────────────────────────
+  static const String addToCart = "add-to-cart";
   static const String showCart = "cart";
   static const String removeFromCart = "remove-from-cart";
   static const String updateCart = "update-cart";
 
+  // ─── Wishlist ──────────────────────────────
   static const String addToWishlist = "add-to-wishlist";
   static const String removeFromWishlist = "remove-from-wishlist";
   static const String showWishlist = "wishlist";
 
+  // ─── Profile ───────────────────────────────
   static const String profile = "profile";
-
-
 }

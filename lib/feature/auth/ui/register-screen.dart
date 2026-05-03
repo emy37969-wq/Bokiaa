@@ -37,116 +37,118 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Custombackbutton(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                LocaleKeys.RegisterPrompt.tr(),
-                style: TextStyle(fontFamily: "DM", fontSize: 30.sp),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Custombackbutton(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  LocaleKeys.RegisterPrompt.tr(),
+                  style: TextStyle(fontFamily: "DM", fontSize: 30.sp),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            CustomTextFormField(
-              controller: nameController,
-              hintText: LocaleKeys.name.tr(),
-              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            CustomTextFormField(
-              controller: emailController,
-              hintText: LocaleKeys.email.tr(),
-              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            CustomTextFormField(
-              controller: passwordController,
-              hintText: LocaleKeys.pass.tr(),
-              keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            CustomTextFormField(
-              controller: password_confirmationController,
-              hintText: LocaleKeys.Confirm.tr(),
-              keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
-            ),
-            SizedBox(
-              height: 25.h,
-            ),
-                         Authbloclistener(title: 'Register',onTap: (){
-               context.read<Authcubit>().register(
-                   name: nameController.text,
-                   email: emailController.text,
-                   password: passwordController.text,
-                   password_confirmation: password_confirmationController.text,
-               );
-             },),
-
-            // uthbloclistener(email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController),
-            // AppButton(title: LocaleKeys.Register.tr(),),
-            // AppButton(
-            //   title: LocaleKeys.Register.tr(),
-            //   onTap: () {
-            //     context.read<Authcubit>().register(
-            //         email: emailController.text,
-            //         name: nameController.text,
-            //         password: passwordController.text,
-            //         password_confirmation:
-            //             password_confirmationController.text);
-            //   },
-            // ),
-            // Authbloclistener( email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController,
-            //    ),
-
-            SizedBox(
-              height: 100.h,
-            ),
-
-            //     Authbloclistener(
-            //  username: usernameController, confirmpassword: confirmpasswordController, email: emailController, password: passwordController,),
-            //                  AppButton(
-            //   title: LocaleKeys.Login.tr(),
-            //   onTap: () {
-            //     context.read<Authcubit>().register(
-            //         email: emailController.text,
-            //         username: usernameController.text,
-            //         password: passwordController.text,
-            //         confirmpassword: confirmpasswordController.text);
-            //   },
-            // ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  LocaleKeys.already.tr(),
-                  style: TextStyle(
-                      fontFamily: "DM", fontSize: 15.sp, color: Colors.black),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      LocaleKeys.login.tr(),
-                      style: TextStyle(
-                          fontFamily: "DM",
-                          fontSize: 15.sp,
-                          color: Appcolors.maincolor),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+              SizedBox(
+                height: 10.h,
+              ),
+              CustomTextField(
+                controller: nameController,
+                hintText: LocaleKeys.name.tr(),
+                keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              CustomTextField(
+                controller: emailController,
+                hintText: LocaleKeys.email.tr(),
+                keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              CustomTextField(
+                controller: passwordController,
+                hintText: LocaleKeys.pass.tr(),
+                keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              CustomTextField(
+                controller: password_confirmationController,
+                hintText: LocaleKeys.Confirm.tr(),
+                keyboardType: TextInputType.visiblePassword, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
+                           Authbloclistener(title: 'Register',onTap: (){
+                 context.read<Authcubit>().register(
+                     name: nameController.text,
+                     email: emailController.text,
+                     password: passwordController.text,
+                     password_confirmation: password_confirmationController.text,
+                 );
+               },),
+          
+              // uthbloclistener(email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController),
+              // AppButton(title: LocaleKeys.Register.tr(),),
+              // AppButton(
+              //   title: LocaleKeys.Register.tr(),
+              //   onTap: () {
+              //     context.read<Authcubit>().register(
+              //         email: emailController.text,
+              //         name: nameController.text,
+              //         password: passwordController.text,
+              //         password_confirmation:
+              //             password_confirmationController.text);
+              //   },
+              // ),
+              // Authbloclistener( email: emailController, password: passwordController, name: nameController, password_confirmation: password_confirmationController,
+              //    ),
+          
+              SizedBox(
+                height: 80.h,
+              ),
+          
+              //     Authbloclistener(
+              //  username: usernameController, confirmpassword: confirmpasswordController, email: emailController, password: passwordController,),
+              //                  AppButton(
+              //   title: LocaleKeys.Login.tr(),
+              //   onTap: () {
+              //     context.read<Authcubit>().register(
+              //         email: emailController.text,
+              //         username: usernameController.text,
+              //         password: passwordController.text,
+              //         confirmpassword: confirmpasswordController.text);
+              //   },
+              // ),
+          
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    LocaleKeys.already.tr(),
+                    style: TextStyle(
+                        fontFamily: "DM", fontSize: 15.sp, color: Colors.black),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        LocaleKeys.login.tr(),
+                        style: TextStyle(
+                            fontFamily: "DM",
+                            fontSize: 15.sp,
+                            color: AppColors.primaryColor),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

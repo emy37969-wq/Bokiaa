@@ -52,7 +52,7 @@ class PasswordChangedScreen extends StatelessWidget {
   (Route<dynamic> route) => false,
 );
     return Scaffold(
-      backgroundColor: Appcolors.Bordercolor,
+      backgroundColor: AppColors.darkBorderColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -67,7 +67,7 @@ class PasswordChangedScreen extends StatelessWidget {
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Serif',
-                  color: Appcolors.darkgraycolor
+                  color: AppColors.lightDarkText
                 ),
               ),
               const SizedBox(height: 12),
@@ -76,16 +76,16 @@ class PasswordChangedScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Appcolors.darkgraycolor,
+                  color: AppColors.lightDarkText,
                   height: 1.5,
                 ),
               ),
               const SizedBox(height: 48),
-              Appbutton(
-                title: 'Back To Login',
+              AppButton(
+                text: 'Back To Login',
                 // onPressed: backToLogin,
                 // isFilled: true,
-                backgroundColor: Appcolors.maincolor,
+                backgroundColor: AppColors.primaryColor,
                 // textColor:Appcolors.Bordercolor,
               ),
             ],

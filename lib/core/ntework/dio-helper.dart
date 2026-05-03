@@ -11,7 +11,7 @@ class Diohelper {
    static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: Apiconstants.baseurl,
+        baseUrl: ApiConstants.baseUrl,
         headers: {"Authorization":"Bearer ${AppConstants.token}"
         },
       )

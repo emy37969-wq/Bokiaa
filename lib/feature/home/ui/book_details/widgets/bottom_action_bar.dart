@@ -1,0 +1,130 @@
+import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/core/theme/app-text-style.dart';
+import 'package:bokiaa/core/theme/app_theme.dart';
+import 'package:bokiaa/core/widgets/app-button.dart';
+import 'package:bokiaa/feature/cart/cupit/cart_cupit.dart';
+import 'package:bokiaa/feature/cart/cupit/cart_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class BookBottomActionBar extends StatelessWidget {
+  const BookBottomActionBar({
+    super.key,
+    required this.productId,
+    required this.price,
+    this.priceAfterDiscount,
+    this.discount,
+  });
+
+  final int productId;
+  final String price;
+  final double? priceAfterDiscount;
+  final int? discount;
+
+  bool get _hasDiscount =>
+      discount != null && discount! > 0 && priceAfterDiscount != null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(25, 10, 25, 30),
+      decoration: BoxDecoration(
+        color: context.appColors.surface,
+        border: Border(top: BorderSide(color: context.appColors.borderColor)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _PriceSection(
+            price: price,
+            priceAfterDiscount: priceAfterDiscount,
+            hasDiscount: _hasDiscount,
+          ),
+          const SizedBox(width: 30),
+          Expanded(
+            child: BlocConsumer<CartCubit, CartState>(
+              listenWhen: (_, current) => current is AddToCartState,
+              listener: (context, state) {
+                if (state is AddToCartSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                } else if (state is AddToCartError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
+              buildWhen: (_, current) => current is AddToCartState,
+              builder: (context, state) {
+                final isLoading = state is AddToCartLoading;
+                return AppButton(
+                  text: isLoading ? 'Adding...' : 'Add To Cart',
+                  onPressed: isLoading
+                      ? () {}
+                      : () => context.read<CartCubit>().addToCart(productId),
+                  isFilled: true,
+                  backgroundColor: AppColors.primaryColor,
+                  textColor: AppColors.white,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────
+// _PriceSection
+// ─────────────────────────────────────────────
+
+class _PriceSection extends StatelessWidget {
+  const _PriceSection({
+    required this.price,
+    required this.hasDiscount,
+    this.priceAfterDiscount,
+  });
+
+  final String price;
+  final double? priceAfterDiscount;
+  final bool hasDiscount;
+
+  @override
+  Widget build(BuildContext context) {
+    if (hasDiscount) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '\$$price',
+            style: AppTextStyle.body14GreyConst.copyWith(
+              decoration: TextDecoration.lineThrough,
+              color: context.appColors.hint,
+            ),
+          ),
+          Text(
+            '\$${priceAfterDiscount!.toStringAsFixed(2)}',
+            style: AppTextStyle.title32BoldConst.copyWith(
+              color: context.appColors.textPrimary,
+            ),
+          ),
+        ],
+      );
+    }
+    return Text(
+      '\$$price',
+      style: AppTextStyle.title32BoldConst.copyWith(
+        color: context.appColors.textPrimary,
+      ),
+    );
+  }
+}

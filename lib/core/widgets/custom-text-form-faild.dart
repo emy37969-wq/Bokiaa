@@ -1,120 +1,120 @@
-// import 'package:bokiaa/core/theme/app-colors.dart';
-// import 'package:bokiaa/core/theme/app-text-style.dart';
-// import 'package:flutter/material.dart';
+// // import 'package:bokiaa/core/theme/app-colors.dart';
+// // import 'package:bokiaa/core/theme/app-text-style.dart';
+// // import 'package:flutter/material.dart';
 
-// class Customtextformfaild extends StatefulWidget {
-//   final String hinttext;
-//   final TextInputType? keyboardtype;
-//   final bool ispassword;
-//   final TextEditingController? controller;
-//   const Customtextformfaild(
-//       {super.key,
-//       required this.hinttext,
-//       this.keyboardtype,
-//       this.ispassword = false, this.controller});
+// // class Customtextformfaild extends StatefulWidget {
+// //   final String hinttext;
+// //   final TextInputType? keyboardtype;
+// //   final bool ispassword;
+// //   final TextEditingController? controller;
+// //   const Customtextformfaild(
+// //       {super.key,
+// //       required this.hinttext,
+// //       this.keyboardtype,
+// //       this.ispassword = false, this.controller});
 
-//   @override
-//   State<Customtextformfaild> createState() => _CustomtextformfaildState();
-// }
+// //   @override
+// //   State<Customtextformfaild> createState() => _CustomtextformfaildState();
+// // }
 
-// class _CustomtextformfaildState extends State<Customtextformfaild> {
-//   bool isobscure = true;
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextFormField(
-//       controller: widget.controller,
-//       onTapOutside: (v) {
-//         FocusScope.of(context).unfocus();
-//       },
-//       keyboardType: widget.keyboardtype,
-//       obscureText: widget.ispassword && isobscure,
-//       decoration: InputDecoration(
-//           suffixIcon: widget.ispassword
-//               ? InkWell(
-//                   onTap: () {
-//                     setState(() {
-//                       isobscure =! isobscure;
-//                     });
-//                   },
-//                   child:isobscure? Icon(Icons.visibility_off):Icon(Icons.visibility))
-//               : null,
-//           fillColor: Appcolors.Bordercolor,
-//           filled: true,
-//           hintText: widget.hinttext,
-//           hintStyle: Apptextstyle.hintStyle,
-//           border: OutlineInputBorder(),
-//           enabledBorder: OutlineInputBorder(
-//               borderSide: BorderSide(color: Appcolors.greycolor)),
-//           focusedBorder: OutlineInputBorder(
-//               borderSide: BorderSide(color: Appcolors.maincolor))),
-//     );
-//   }
-// }
+// // class _CustomtextformfaildState extends State<Customtextformfaild> {
+// //   bool isobscure = true;
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return TextFormField(
+// //       controller: widget.controller,
+// //       onTapOutside: (v) {
+// //         FocusScope.of(context).unfocus();
+// //       },
+// //       keyboardType: widget.keyboardtype,
+// //       obscureText: widget.ispassword && isobscure,
+// //       decoration: InputDecoration(
+// //           suffixIcon: widget.ispassword
+// //               ? InkWell(
+// //                   onTap: () {
+// //                     setState(() {
+// //                       isobscure =! isobscure;
+// //                     });
+// //                   },
+// //                   child:isobscure? Icon(Icons.visibility_off):Icon(Icons.visibility))
+// //               : null,
+// //           fillColor: Appcolors.Bordercolor,
+// //           filled: true,
+// //           hintText: widget.hinttext,
+// //           hintStyle: Apptextstyle.hintStyle,
+// //           border: OutlineInputBorder(),
+// //           enabledBorder: OutlineInputBorder(
+// //               borderSide: BorderSide(color: Appcolors.greycolor)),
+// //           focusedBorder: OutlineInputBorder(
+// //               borderSide: BorderSide(color: Appcolors.maincolor))),
+// //     );
+// //   }
+// // }
 
-import 'package:bokiaa/core/theme/app-colors.dart';
-import 'package:bokiaa/core/theme/app-text-style.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// // import 'package:bokiaa/core/theme/app-colors.dart';
+// // import 'package:bokiaa/core/theme/app-text-style.dart';
+// // import 'package:flutter/material.dart';
+// // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextFormField extends StatefulWidget {
-  final String hintText;
-  final TextInputType? keyboardType;
-  final bool isPassword;
-  final TextEditingController? controller;
-  final void Function (String)? onChanged;
-  const CustomTextFormField({
-    super.key,
-    required this.hintText,
-    this.keyboardType,
-    this.isPassword = false,
-    this.controller, this.onChanged, required List<String> autofillHints, required String? Function(dynamic value) validator,
-  });
+// // class CustomTextFormField extends StatefulWidget {
+// //   final String hintText;
+// //   final TextInputType? keyboardType;
+// //   final bool isPassword;
+// //   final TextEditingController? controller;
+// //   final void Function (String)? onChanged;
+// //   const CustomTextFormField({
+// //     super.key,
+// //     required this.hintText,
+// //     this.keyboardType,
+// //     this.isPassword = false,
+// //     this.controller, this.onChanged, required List<String> autofillHints, required String? Function(dynamic value) validator, required TextInputAction textInputAction,
+// //   });
 
-  @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
+// //   @override
+// //   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+// // }
 
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  bool isObscure = true;
-  @override
-  Widget build(BuildContext context) {
-    // print("rebuild custom text ");
+// // class _CustomTextFormFieldState extends State<CustomTextFormField> {
+// //   bool isObscure = true;
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     print("rebuild custom text ");
 
-    return TextFormField(
-      controller: widget.controller,
-      onTapOutside: (v) {
-        FocusScope.of(context).unfocus();
-      },
-      onChanged: widget.onChanged,
-      cursorColor: Appcolors.maincolor,
-      keyboardType: widget.keyboardType,
-      obscureText: widget.isPassword && isObscure,
-      decoration: InputDecoration(
-          suffixIcon: widget.isPassword
-              ? Padding(
-                  padding: EdgeInsets.all(8.0.r),
-                  child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          isObscure = !isObscure;
-                        });
-                      },
-                      child: isObscure
-                          ? Icon(Icons.visibility_off)
-                          : Icon(Icons.visibility)))
-              : null,
-          fillColor: const Color.fromARGB(255, 243, 240, 240),
-          filled: true,
-          hintText: widget.hintText,
-          hintStyle: AppTextStyle.hint16,
-          border: OutlineInputBorder(),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Appcolors.Bordercolor)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Appcolors.maincolor))),
-    );
-  }
-}
+// //     return TextFormField(
+// //       controller: widget.controller,
+// //       onTapOutside: (v) {
+// //         FocusScope.of(context).unfocus();
+// //       },
+// //       onChanged: widget.onChanged,
+// //       cursorColor:AppColors.primaryColor,
+// //       keyboardType: widget.keyboardType,
+// //       obscureText: widget.isPassword && isObscure,
+// //       decoration: InputDecoration(
+// //           suffixIcon: widget.isPassword
+// //               ? Padding(
+// //                   padding: EdgeInsets.all(8.0.r),
+// //                   child: InkWell(
+// //                       onTap: () {
+// //                         setState(() {
+// //                           isObscure = !isObscure;
+// //                         });
+// //                       },
+// //                       child: isObscure
+// //                           ? Icon(Icons.visibility_off)
+// //                           : Icon(Icons.visibility)))
+// //               : null,
+// //           fillColor: const Color.fromARGB(255, 243, 240, 240),
+// //           filled: true,
+// //           hintText: widget.hintText,
+// //           hintStyle: AppTextStyle.hint16,
+// //           border: OutlineInputBorder(),
+// //           enabledBorder: OutlineInputBorder(
+// //               borderSide: BorderSide(color: AppColors.darkBorderColor)),
+// //           focusedBorder: OutlineInputBorder(
+// //               borderSide: BorderSide(color: AppColors.primaryColor))),
+// //     );
+// //   }
+// // }
 
 
 // import 'package:bokiaa/core/theme/app-colors.dart';
@@ -183,24 +183,24 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 //       autofillHints: widget.autofillHints,
 //       textInputAction: widget.textInputAction,
 //       obscureText: widget.isPassword,
-//       cursorColor: Appcolors.primaryColor,
+//       cursorColor: AppColors.primaryColor,
 //       decoration: InputDecoration(
 //         hintText: widget.hintText,
-//         hintStyle: const TextStyle(color: Appcolors.greycolor),
-//         fillColor: Appcolors.productbackground,
+//         hintStyle: const TextStyle(color: AppColors.lightSecGray),
+//         fillColor: AppColors.darkBackground,
 //         filled: true,
 //         suffixIcon: widget.suffixIcon,
 //         border: const OutlineInputBorder(
 //           borderRadius: _borderRadius,
-//           borderSide: BorderSide(color: Appcolors.Bordercolor),
+//           borderSide: BorderSide(color: AppColors.darkBorderColor),
 //         ),
 //         enabledBorder: const OutlineInputBorder(
 //           borderRadius: _borderRadius,
-//           borderSide: BorderSide(color: Appcolors.Bordercolor),
+//           borderSide: BorderSide(color: AppColors.darkBorderColor),
 //         ),
 //         focusedBorder: const OutlineInputBorder(
 //           borderRadius: _borderRadius,
-//           borderSide: BorderSide(color: Appcolors.maincolor, width: 1.5),
+//           borderSide: BorderSide(color: AppColors.primaryColor, width: 1.5),
 //         ),
 //         errorBorder: const OutlineInputBorder(
 //           borderRadius: _borderRadius,
@@ -214,3 +214,114 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 //     );
 //   }
 // }
+
+import 'package:bokiaa/core/theme/app-colors.dart';
+import 'package:bokiaa/core/theme/app_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class CustomTextField extends StatefulWidget {
+  final String hintText;
+  final bool isPassword;
+  final Widget? suffixIcon;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final Iterable<String>? autofillHints;
+  final TextInputAction? textInputAction;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextCapitalization textCapitalization;
+  final void Function(String)? onChanged;
+  final void Function(bool hasFocus)? onFocusChanged;
+
+  const CustomTextField({
+    super.key,
+    required this.hintText,
+    this.isPassword = false,
+    this.suffixIcon,
+    required this.controller,
+    this.validator,
+    this.keyboardType,
+    this.autofillHints,
+    this.textInputAction,
+    this.inputFormatters,
+    this.textCapitalization = TextCapitalization.none,
+    this.onChanged,
+    this.onFocusChanged,
+  });
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  final FocusNode _focusNode = FocusNode();
+  bool _hasUnfocused = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(() {
+      if (!_focusNode.hasFocus && !_hasUnfocused) {
+        setState(() => _hasUnfocused = true);
+      }
+      widget.onFocusChanged?.call(_focusNode.hasFocus);
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  static const _borderRadius = BorderRadius.all(Radius.circular(8));
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      autovalidateMode: _hasUnfocused
+          ? AutovalidateMode.onUserInteraction
+          : AutovalidateMode.disabled,
+      focusNode: _focusNode,
+      controller: widget.controller,
+      validator: widget.validator,
+      keyboardType: widget.keyboardType,
+      autofillHints: widget.autofillHints,
+      textInputAction: widget.textInputAction,
+      obscureText: widget.isPassword,
+      inputFormatters: widget.inputFormatters,
+      textCapitalization: widget.textCapitalization,
+      onChanged: widget.onChanged,
+      cursorColor: AppColors.primaryColor,
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        hintStyle: TextStyle(color: context.appColors.hint),
+        fillColor: context.appColors.fillColor,
+        filled: true,
+        suffixIcon: widget.suffixIcon,
+        border: OutlineInputBorder(
+          borderRadius: _borderRadius,
+          borderSide: BorderSide(color: context.appColors.borderColor),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: _borderRadius,
+          borderSide: BorderSide(color: context.appColors.borderColor),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: _borderRadius,
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1.5),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: _borderRadius,
+          borderSide: BorderSide(color: Colors.red, width: 1.5),
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderRadius: _borderRadius,
+          borderSide: BorderSide(color: Colors.red, width: 1.5),
+        ),
+      ),
+    );
+  }
+}
+

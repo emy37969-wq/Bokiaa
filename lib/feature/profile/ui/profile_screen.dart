@@ -1,0 +1,111 @@
+
+import 'package:bokiaa/core/widgets/routes/app-routes.dart';
+import 'package:bokiaa/feature/profile/cupit/profile_cupit.dart';
+import 'package:bokiaa/feature/profile/cupit/profile_state.dart';
+import 'package:bokiaa/feature/profile/ui/widgets/profile_error.dart';
+import 'package:bokiaa/feature/profile/ui/widgets/profile_header.dart';
+import 'package:bokiaa/feature/profile/ui/widgets/profile_menu.dart';
+import 'package:bokiaa/feature/profile/ui/widgets/profile_skeleton.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/theme/app_theme.dart';
+import 'widgets/profile_appbar.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  VoidCallback? onLogoutTap;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProfileCubit>().getProfile();
+  }
+
+  void _showLogoutDialog() {
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: context.appColors.background,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Text(
+          'Logout',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: const Text(
+          'Are you sure you want to logout?',
+          style: TextStyle(color: Colors.grey),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(dialogContext);
+              context.read<ProfileCubit>().logout();
+            },
+            child: const Text('Logout', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<ProfileCubit, ProfileState>(
+      listener: (context, state) {
+        if (state is LogoutSuccess) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.onboarding,
+            (route) => false,
+          );
+        } else if (state is LogoutError) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.message), backgroundColor: Colors.red),
+          );
+        }
+      },
+      child: Scaffold(
+        appBar: ProfileAppBar(onLogoutTap: _showLogoutDialog),
+        body: RefreshIndicator(
+          onRefresh: () => context.read<ProfileCubit>().getProfile(),
+          child: BlocBuilder<ProfileCubit, ProfileState>(
+            buildWhen: (_, current) => current is GetProfileState,
+            builder: (context, state) {
+              if (state is GetProfileLoading || state is ProfileInitial) {
+                return const ProfileSkeleton();
+              } else if (state is GetProfileSuccess) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ProfileHeader(
+                        name: state.profile.name ?? '',
+                        email: state.profile.email ?? '',
+                        imageUrl: state.profile.image ?? '',
+                      ),
+                      const SizedBox(height: 24),
+                      const ProfileMenu(),
+                    ],
+                  ),
+                );
+              } else if (state is GetProfileError) {
+                return ProfileError(message: state.message);
+              }
+              return const SizedBox.shrink();
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

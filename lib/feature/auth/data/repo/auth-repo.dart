@@ -107,8 +107,10 @@
 
 
 
+import 'package:bokiaa/core/helper/storage_service.dart';
 import 'package:bokiaa/core/ntework/api-constants.dart';
 import 'package:bokiaa/core/ntework/dio-helper.dart';
+import 'package:bokiaa/core/ntework/dio_factory.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Authrepo {
@@ -117,7 +119,7 @@ class Authrepo {
       {required String email, required String password}) async {
     try {
       final  response = await Diohelper.dio?.post(
-          Apiconstants.login,
+          ApiConstants.loginEndpoint,
           data: {"email": email, "password": password});
       print(response?.statusCode);
       if (response?.statusCode == 200) {
@@ -136,7 +138,7 @@ class Authrepo {
       {required String email, required String password, required String name, required String password_confirmation}) async {
     try {
       final  response = await Diohelper.dio?.post(
-          Apiconstants.register,
+          ApiConstants.registerEndpoint,
           data: {
         "name": name,
         "email": email,
@@ -180,10 +182,18 @@ class Authrepo {
   //   }
   // }
 
+    static Future<void> logout() async {
+    await StorageService.removeToken();
+    DioFactory.dio?.options.headers.remove('Authorization');
+  }
+
+
   static Future<void> saveUserToken(String token) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("token", token);
   }
+
+
 }
 
 // import 'package:bokiaa/core/ntework/api-erroe.dart';

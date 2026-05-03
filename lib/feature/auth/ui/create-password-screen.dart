@@ -90,7 +90,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    CustomTextFormField(
+                    CustomTextField(
                       hintText: 'New Password',
                       controller: _newPasswordController,
                       isPassword: !_showNewPassword,
@@ -118,7 +118,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                       }, onChanged: (v) {  },
                     ),
                     SizedBox(height:  16.h),
-                    CustomTextFormField(
+                    CustomTextField(
                       hintText: 'Confirm Password',
                       controller: _confirmPasswordController,
                       isPassword: !_showConfirmPassword,
@@ -153,11 +153,11 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
               _isLoading
                   ? Center(
                       child: CircularProgressIndicator(
-                        color: Appcolors.maincolor,
+                        color: AppColors.primaryColor,
                       ),
                     )
-                  : Appbutton(
-                      title: 'Reset Password',
+                  : AppButton(
+                      text: 'Reset Password',
                       // onPressed: _onResetPassword,
                       // isFilled: true,
                       backgroundColor: const Color(0xFFBB9457),

@@ -26,185 +26,193 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-  emailController.dispose();
-  passwordController.dispose();
-  super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Custombackbutton(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                LocaleKeys.WelcomeBack.tr(),
-                style: TextStyle(fontFamily: "DM", fontSize: 30.sp),
-              ),
-            ),
-            SizedBox(
-              height: 5.h,
-            ),
-            CustomTextFormField(
-              controller: emailController,
-              hintText: LocaleKeys.Email.tr(),
-              keyboardType: TextInputType.emailAddress, onChanged: (v) {  }, autofillHints: [], validator: (value) {  },
+     return Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Custombackbutton(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      LocaleKeys.WelcomeBack.tr(),
+                      style: TextStyle(fontFamily: "DM", fontSize: 30.sp),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  CustomTextField(
+                    controller: emailController,
+                    hintText: LocaleKeys.Email.tr(),
+                    keyboardType: TextInputType.emailAddress, onChanged: (v) {},
+                    autofillHints: [], validator: (value) {},
 
-              // hintText: LocaleKeys.Email.tr(),
-              // keyboardType: TextInputType.emailAddress,
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            CustomTextFormField(
-              controller: passwordController,
-              isPassword: true,
-              hintText: LocaleKeys.Password.tr(),
-              keyboardType: TextInputType.visiblePassword, autofillHints: [], validator: (value) {  }, 
-              // hintText: LocaleKeys.Password.tr(),
-              // keyboardType: TextInputType.visiblePassword,
-              // isPassword: true,
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => ForgotPasswordScreen()),
-                );
-              },
-              child: Text(
-                LocaleKeys.forget.tr(),
-                style: TextStyle(
-                    fontFamily: "DM",
-                    fontSize: 15.sp,
-                    color: Color(0xff6A707C)),
-              ),
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Authbloclistener(title: 'Login',onTap: (){
-                context.read<Authcubit>().login(
-                    email: emailController.text,
-                    password: passwordController.text,
-                );
-              },),
-
-// Authbloclistener(email: emailController, password: passwordController,),
-    // InkWell(
-    //             onTap: () {
-    //               Navigator.push(
-    //                   context, MaterialPageRoute(builder: (_) => Homescreen()));
-    //             },
-    //             child: AppButton(title: LocaleKeys.Login.tr())),
-            SizedBox(
-              height: 10.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  LocaleKeys.or.tr(),
-                  style: TextStyle(
-                      fontFamily: "DM",
-                      fontSize: 15.sp,
-                      color: Color(0xff6A707C)),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 7.h,
-            ),
-            Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 15.h),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8.r)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/images/google_ic.png"),
-                    Text(
-                      LocaleKeys.Google.tr(),
+                    // hintText: LocaleKeys.Email.tr(),
+                    // keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextField(
+                    controller: passwordController,
+                    isPassword: true,
+                    hintText: LocaleKeys.Password.tr(),
+                    keyboardType: TextInputType.visiblePassword,
+                    autofillHints: [], validator: (value) {},
+                    // hintText: LocaleKeys.Password.tr(),
+                    // keyboardType: TextInputType.visiblePassword,
+                    // isPassword: true,
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => ForgotPasswordScreen()),
+                      );
+                    },
+                    child: Text(
+                      LocaleKeys.forget.tr(),
                       style: TextStyle(
-                        fontSize: 15.sp,
-                        color: Color(0xff6A707C),
-                      ),
+                          fontFamily: "DM",
+                          fontSize: 15.sp,
+                          color: Color(0xff6A707C)),
                     ),
-                  ],
-                )),
-            SizedBox(
-              height: 10.h,
-            ),
-            Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 15.h),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8.r)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.apple),
-                    Text(
-                      LocaleKeys.Apple.tr(),
-                      style:
-                          TextStyle(fontSize: 15.sp, color: Color(0xff6A707C)),
-                    ),
-                  ],
-                )),
-            SizedBox(
-              height: 25.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  LocaleKeys.not.tr(),
-                  style: TextStyle(
-                      fontFamily: "DM", fontSize: 15.sp, color: Colors.black),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (_) => RegisterScreen()),
-                        );
-                      },
-                      child: Text(
-                        LocaleKeys.now.tr(),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Authbloclistener(
+                    title: 'Login',
+                    onTap: () {
+                      context.read<Authcubit>().login(
+                            email: emailController.text,
+                            password: passwordController.text,
+                          );
+                    },
+                  ),
+                  // AuthBlocListener(email: emailController.text, password: passwordController.text),
+                  // Authbloclistener(email: emailController.text, password: passwordController.text),
+                  // InkWell(
+                  //             onTap: () {
+                  //               Navigator.push(
+                  //                   context, MaterialPageRoute(builder: (_) => Homescreen()));
+                  //             },
+                  //             child: AppButton(title: LocaleKeys.Login.tr())),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        LocaleKeys.or.tr(),
                         style: TextStyle(
                             fontFamily: "DM",
                             fontSize: 15.sp,
-                            color: Appcolors.maincolor),
+                            color: Color(0xff6A707C)),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: 7.h,
+                  ),
+                  Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8.r)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/google_ic.png"),
+                          Text(
+                            LocaleKeys.Google.tr(),
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              color: Color(0xff6A707C),
+                            ),
+                          ),
+                        ],
+                      )),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8.r)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.apple),
+                          Text(
+                            LocaleKeys.Apple.tr(),
+                            style: TextStyle(
+                                fontSize: 15.sp, color: Color(0xff6A707C)),
+                          ),
+                        ],
+                      )),
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        LocaleKeys.not.tr(),
+                        style: TextStyle(
+                            fontFamily: "DM",
+                            fontSize: 15.sp,
+                            color: Colors.black),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => RegisterScreen()),
+                              );
+                            },
+                            child: Text(
+                              LocaleKeys.now.tr(),
+                              style: TextStyle(
+                                  fontFamily: "DM",
+                                  fontSize: 15.sp,
+                                  color: AppColors.primaryColor),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  // AuthBlocListener(email: emailController.text, password: passwordController.text),
+                ],
+              ),
             ),
-            // AuthBlocListener(email: emailController.text, password: passwordController.text),
-          ],
-        ),
-      ),
-    );
+          ),
+        );
   }
 }
-
-
-

@@ -1,13 +1,3 @@
-// import 'package:bokiaa/core/theme/app-colors.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-// class Apptextstyle {
-//  static TextStyle hintStyle = TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400,
-//    color: Appcolors.darkgraycolor
-//    );
-// }
-
 import 'package:bokiaa/core/theme/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,25 +34,25 @@ class AppTextStyle {
   static final TextStyle title32Bold = style(
     fontSize: 32.sp,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle title30Bold = style(
     fontSize: 30.sp,
     fontWeight: FontWeight.bold,
-    color: Appcolors.maincolor,
+    color: AppColors.lightTextPrimary,
   );
 
   static final TextStyle title28Bold = style(
     fontSize: 28.sp,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle title20Bold = style(
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle button16 = style(
@@ -72,42 +62,42 @@ class AppTextStyle {
 
   static final TextStyle body14 = style(
     fontSize: 14.sp,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle body14Gray = style(
     fontSize: 14.sp,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 
   static final TextStyle body16Gray = style(
     fontSize: 16.sp,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 
   static final TextStyle body16 = style(
     fontSize: 16.sp,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle hint16 = style(
     fontSize: 16.sp,
-    color: Appcolors.greycolor,
+    color: AppColors.hintColor,
   );
 
   static final TextStyle caption13 = style(
     fontSize: 13.sp,
-    color: Colors.black,
+    color: AppColors.black,
   );
 
   static final TextStyle caption13Gray = style(
     fontSize: 13.sp,
-    color:Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 
   static final TextStyle caption13Primary = style(
     fontSize: 13.sp,
-    color:Appcolors.darkgraycolor,
+    color: AppColors.secondaryColor,
   );
 
   static const TextStyle button16Const = TextStyle(
@@ -123,44 +113,44 @@ class AppTextStyle {
   static const TextStyle title14BoldConst = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
-    color:Colors.black,
+    color: AppColors.black,
   );
 
   static const TextStyle price18SecondaryConst = TextStyle(
     fontSize: 18,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.secondaryColor,
     fontWeight: FontWeight.w800,
   );
 
   static const TextStyle title32BoldConst = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
-    color:Colors.black,
+    color: AppColors.black,
   );
 
   static const TextStyle title18PrimaryConst = TextStyle(
     fontSize: 18,
-    color:Appcolors.darkgraycolor,
+    color: AppColors.secondaryColor,
     fontWeight: FontWeight.w500,
   );
 
   static const TextStyle body14BlackConst = TextStyle(
     fontSize: 14,
-    color:Colors.black,
+    color: AppColors.black,
   );
 
   static const TextStyle body14GreyConst = TextStyle(
     fontSize: 14,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 
   static const TextStyle body16GreyConst = TextStyle(
     fontSize: 16,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 
   static const TextStyle caption13GreyConst = TextStyle(
     fontSize: 13,
-    color: Appcolors.darkgraycolor,
+    color: AppColors.lightSecGray,
   );
 }
